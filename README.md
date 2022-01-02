@@ -10,6 +10,8 @@
 
 ---
 
+[노션 링크](https://www.notion.so/Fan-Certification-Android-a55ec9850b654d04b74b28d823ae9642)
+
 Firebase Console: 
 
 [Sign in - Google Accounts](https://console.firebase.google.com/u/0/project/fan-certification/overview)
