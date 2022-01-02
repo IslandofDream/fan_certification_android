@@ -2,13 +2,9 @@
 
 # 개요
 
----
-
 유튜버, 인스타 인플루언서, 기타 여러 셀럽들의 팬을 인증할 수 있는 어플리케이션이다. 언제부터 셀럽의 팬이었는지를 초기 설정 날짜 등을 통해, 셀럽을 얼마나 좋아하는지를 좋아요 숫자 등으로 나타내어 인증할 수 있도록 하였다. 본 ReadMe에서는 Android에 대해서만 다루겠다.
 
 # 초기 설정
-
----
 
 [노션 링크](https://www.notion.so/Fan-Certification-Android-a55ec9850b654d04b74b28d823ae9642)
 
@@ -110,18 +106,12 @@ https://www.googleapis.com/youtube/v3/search?part=id,snippet&type=channel&q={채
 
 # 화면 구성
 
----
-
 [https://www.figma.com/file/O3Ig4q5gCj2FQJ292mcdCO/Fan-Certification?node-id=0%3A1](https://www.figma.com/file/O3Ig4q5gCj2FQJ292mcdCO/Fan-Certification?node-id=0%3A1)
 
 # 테스트
 
----
-
 테스터가 직접 keystore에서 key를 만들어 테스트한다. 다만, 실제 배포용 키는 내가 갖고 있으므로 실제 google play store 배포는 일단 지금은 나밖에 할 수가 없다. 양해 부탁.
 
 # 마치며...
-
----
 
 궁금한 것들은 언제든 나에게 연락하길 바란다. 쉽게 생각하면 엄청 쉽고, 어렵게 생각하면 매우 어려워질 수 있는 프로젝트라고 생각한다. 언제든 포기해도 좋다! 건투를 빈다!
