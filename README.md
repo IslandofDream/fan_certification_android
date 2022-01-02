@@ -22,7 +22,7 @@ ID: [test@test.com](mailto:test@test.com)
 
 PW: 123456
 
-1. Firebase Firestore
+2. Firebase Firestore
 
 로그인과 더불어 가장 중요한 간단한 NoSQL 데이터베이스 서비스이다. 구조는 아래와 같다.
 
@@ -80,7 +80,7 @@ PW: 123456
 
 [Add Firebase to your Android project | Firebase Documentation](https://firebase.google.com/docs/android/setup?authuser=0)
 
-1. 유튜브
+4. 유튜브
 
 유튜브 채널은 고유의 채널 ID가 있다. 그리고 이 ID를 검색하는 API는 아래와 같다. GET 방식이다.
 
@@ -102,7 +102,7 @@ https://www.googleapis.com/youtube/v3/search?part=id,snippet&type=channel&q={채
             채널 ID: 검색 후 셀럽을 등록할 땐 이 채널 ID를 사용하도록 한다.
             
 
-1. 인스타그램
+5. 인스타그램
 
 인스타그램에는 고유의 사용자 ID와 있다. 하지만 현재는 공식적으로 모든 사용자의 ID를 검색할 수 있도록 하는 API는 없다. 그래서 임시로 username(고유 사용자 이름)을 사용하기로 한다. 인스타그램의 경우는 검색 기능을 보류한다. (혹시라도 고유 사용자 ID를 검색하는 API가 있다면 공유 부탁...)
 
