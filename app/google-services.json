@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "52507784907",
+    "project_id": "fan-certification",
+    "storage_bucket": "fan-certification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52507784907:android:e7d12d229e057902f28d4e",
+        "android_client_info": {
+          "package_name": "com.fancertification.www"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52507784907-ls0uhilsc5v4oq5cg33e7te4t33qv6pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtXAPFzwUuS0-4XIiIi9176LHe0M3vUug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52507784907-ls0uhilsc5v4oq5cg33e7te4t33qv6pg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "52507784907-pg85hjke0b0mhvb7da771a01t570hc39.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ground17.fancertification"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
