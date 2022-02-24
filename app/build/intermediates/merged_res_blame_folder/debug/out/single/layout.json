@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_login.xml",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/activity_login.xml"
+    }
+]
