@@ -82,7 +82,7 @@ PW: 123456
 
 유튜브 채널은 고유의 채널 ID가 있다. 그리고 이 ID를 검색하는 API는 아래와 같다. GET 방식이다.
 
-https://www.googleapis.com/youtube/v3/search?part=id,snippet&type=channel&q={채널명 or 채널ID}&key=AIzaSyAMK7BBcUlJ81DjvkGL3mmPAZCcJeSjzRo
+https://www.googleapis.com/youtube/v3/search?part=id,snippet&type=channel&q={채널명 or 채널ID}&key={개인APIKEY}
 
 출력되는 json 파일 구조 중 일부는 아래와 같다. 다만 변동될 수도 있으니 직접 테스트해보는 걸 추천
 

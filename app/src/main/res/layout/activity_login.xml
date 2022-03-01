@@ -45,8 +45,8 @@
                     android:id="@+id/emailText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:hint="ID"
-                    app:boxStrokeColor="@color/white"
                     android:textColorHint="#B3B3B4"
                     android:backgroundTint="@color/white"
                     android:textColor="#000000" />

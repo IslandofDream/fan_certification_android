@@ -37,6 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                app:boxStrokeColor="@color/black"
+                app:boxStrokeWidth="1dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 >
@@ -45,8 +47,8 @@
                     android:id="@+id/emailText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:hint="ID"
-                    app:boxStrokeColor="@color/white"
                     android:textColorHint="#B3B3B4"
                     android:backgroundTint="@color/white"
                     android:textColor="#000000" />

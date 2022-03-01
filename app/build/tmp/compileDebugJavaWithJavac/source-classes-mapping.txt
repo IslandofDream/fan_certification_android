@@ -1,0 +1,6 @@
+com/fancertification/www/databinding/ActivityLoginBinding.java
+ com.fancertification.www.databinding.ActivityLoginBinding
+com/fancertification/www/BuildConfig.java
+ com.fancertification.www.BuildConfig
+com/fancertification/www/databinding/ActivityMainBinding.java
+ com.fancertification.www.databinding.ActivityMainBinding
