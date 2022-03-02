@@ -1,146 +1,58 @@
 package com.fancertification.www
-
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
-
 import android.os.AsyncTask
-
 import org.json.JSONException
-
-import org.json.JSONObject
-
 import android.util.Log
+import androidx.core.content.ContextCompat
 import com.fancertification.www.databinding.ActivityMainBinding
-import java.io.BufferedReader
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
 
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
-    val sdata: ArrayList<SearchData> = ArrayList<SearchData>()
-    val serverKey = "AIzaSyAMK7BBcUlJ81DjvkGL3mmPAZCcJeSjzRo"
-    lateinit var utubeAdapter: UtubeAdapter
 
+val iconArray = arrayListOf<Int>(
+    R.drawable.ic_star,
+    R.drawable.ic_search,
+    R.drawable.ic_setting
+)
     //  UtubeAdapter utubeAdapter;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        binding.searchBtn.setOnClickListener {
-            searchTask().execute();
-        }
-
+        init()
         setContentView(binding.root)
     }
-
-    inner class searchTask :
-        AsyncTask<Void?, Void?, Void?>() {
-        override fun onPreExecute() {
-            super.onPreExecute()
-        }
-
-        override fun doInBackground(vararg params: Void?): Void? {
-            try {
-                //paringJsonData(getUtube())
-                paringJsonData(getUtube())
-                Log.d("result!!!", sdata.toString())
-            } catch (e: JSONException) {
-                // TODO Auto-generated catch block
-                Log.d("myJsonError", e.toString())
-                e.printStackTrace()
-            } catch (e: IOException) {
-                Log.d("myIOError", e.toString())
-                e.printStackTrace()
+    private fun init() {
+        binding.viewPager.adapter = FragmentHandler(this)
+        initIconColor()
+        TabLayoutMediator(binding.myTabIconview, binding.viewPager) { tab, position ->
+            tab.setIcon(iconArray[position])
+        }.attach() //꼭 attach해야함.
+    }
+    fun initIconColor() {
+        binding.myTabIconview.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                var tabiconColor = ContextCompat.getColor(applicationContext, R.color.selectRed)
+                tab?.icon?.setColorFilter(tabiconColor, PorterDuff.Mode.SRC_IN)
             }
-            return null
-        }
 
-        override fun onPostExecute(result: Void?) {
-            utubeAdapter = UtubeAdapter(this@MainActivity, sdata)
-            binding.recyclerView.adapter = utubeAdapter
-            utubeAdapter.notifyDataSetChanged()
-        }
-
-    }
-
-    @Throws(IOException::class)
-    fun getUtube(): JSONObject? {
-        val originUrl = ("https://www.googleapis.com/youtube/v3/search?"
-                + "part=snippet&q=" + "blackpink" + "&type=channel"
-                + "&key=" + serverKey + "&maxResults=20")
-        val myUrl = String.format(originUrl)
-        val url = URL(myUrl)
-        val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-        connection.setRequestMethod("GET")
-        connection.setReadTimeout(10000)
-        connection.setConnectTimeout(15000)
-        connection.connect()
-        var line: String?
-        var result = ""
-        val inputStream: InputStream = connection.getInputStream()
-        val reader = BufferedReader(InputStreamReader(inputStream))
-        val response = StringBuffer()
-        while (reader.readLine().also { line = it } != null) {
-            response.append(line)
-        }
-        result = response.toString()
-        var jsonObject = JSONObject()
-        try {
-            jsonObject = JSONObject(result)
-        } catch (e: JSONException) {
-            // TODO Auto-generated catch block
-            e.printStackTrace()
-        }
-        Log.d("response", jsonObject.toString())
-        return jsonObject
-    }
-
-    @Throws(JSONException::class)
-    private fun paringJsonData(jsonObject: JSONObject?) {
-        //재검색할때 데이터들이 쌓이는걸 방지하기 위해 리스트를 초기화 시켜준다.
-        // sdata.clear();
-        var vodid = ""
-        val contacts = jsonObject?.getJSONArray("items")
-        for (i in 0 until contacts!!.length()) {
-            val c = contacts.getJSONObject(i)
-            val kind = c.getJSONObject("id").getString("kind") // 종류를 체크하여 playlist도 저장
-            vodid = if (kind == "youtube#video") {
-                c.getJSONObject("id").getString("videoId") // 유튜브
-                // 동영상
-                // 아이디
-                // 값입니다.
-                // 재생시
-                // 필요합니다.
-            } else {
-                c.getJSONObject("id").getString("channelId") // 유튜브
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                var tabiconColor =
+                    ContextCompat.getColor(applicationContext, R.color.lightgray2)
+                tab?.icon?.setColorFilter(tabiconColor, PorterDuff.Mode.SRC_IN)
             }
-            val title = c.getJSONObject("snippet").getString("title") //유튜브 제목을 받아옵니다
-            val changString: String = stringToHtmlSign(title)
-            val date = c.getJSONObject("snippet").getString("publishedAt") //등록날짜
-                .substring(0, 10)
-            val imgUrl = c.getJSONObject("snippet").getJSONObject("thumbnails")
-                .getJSONObject("default").getString("url") //썸네일 이미지 URL값
 
-            //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
-            sdata.add(SearchData(vodid, changString, imgUrl, date))
-        }
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                var tabiconColor = ContextCompat.getColor(applicationContext, R.color.selectRed)
+                tab?.icon?.setColorFilter(tabiconColor, PorterDuff.Mode.SRC_IN)
+            }
+
+        })
     }
-
-    //var vodid = ""
-
-    //영상 제목을 받아올때 " ' 문자가 그대로 출력되기 때문에 다른 문자로 대체 해주기 위해 사용하는 메서드
-    private fun stringToHtmlSign(str: String): String {
-        return str.replace("&", "[&]")
-            .replace("[<]", "<")
-            .replace("[>]", ">")
-            .replace("\"", "\'")
-            .replace("'", "'");
-    }
-
-
 }

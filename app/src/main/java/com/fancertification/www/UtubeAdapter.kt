@@ -6,9 +6,14 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import android.R
+import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import com.fancertification.www.databinding.ExampleAdapterItemBinding
 import java.util.ArrayList
 
@@ -28,9 +33,10 @@ class UtubeAdapter(var context: Context, list: ArrayList<SearchData>?) :
         val title: TextView = binding.titleTv //binding TextView in item_health_info.xml
         val detail: TextView = binding.subscriptionTv // binding TextView in item_health_info.xml
         val image: ImageView = binding.titleImage
+        val bookmark: ImageButton = binding.bookmarkBtn
 
         init {
-            binding.subscriptionBtn.setOnClickListener { //click event for suggestion btton
+            binding.bookmarkBtn.setOnClickListener { //click event for suggestion btton
                 itemOnClickListener?.OnItemClick(this, it,
                     mList?.get(adapterPosition)!!, adapterPosition)
             }
@@ -51,18 +57,20 @@ class UtubeAdapter(var context: Context, list: ArrayList<SearchData>?) :
     override fun onBindViewHolder(viewholder: UtubeViewHolder, position: Int) {
 
 
-        //영상제목 세팅
         viewholder.title.setText(mList!![position].title)
-        //날짜 세팅
-        viewholder.detail.setText(mList!![position].publishedAt)
-
-
+        viewholder.detail.setText(mList!![position].description)
+        if(mList!![position].is_scraped){
+            viewholder.bookmark.setColorFilter(ContextCompat.getColor(context,R.color.holo_red_light) ,PorterDuff.Mode.SRC_IN)
+        }else{
+            viewholder.bookmark.setColorFilter(ContextCompat.getColor(context,R.color.darker_gray) ,PorterDuff.Mode.SRC_IN)
+        }
         //이미지를 넣어주기 위해 이미지url을 가져온다.
         val imageUrl: String = mList!![position].imageUrl
         //영상 썸네일 세팅
         Glide.with(viewholder.image)
-            .load(imageUrl)
+            .load(imageUrl).circleCrop()
             .into(viewholder.image)
+
     }
 
     override fun getItemCount(): Int {
