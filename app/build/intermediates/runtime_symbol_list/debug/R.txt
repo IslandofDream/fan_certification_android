@@ -2099,6 +2099,7 @@ int id pwText 0x7f090140
 int id radio 0x7f090141
 int id ratio 0x7f090142
 int id rectangles 0x7f090143
+int id recyclerView 0x7f0901cd
 int id reverseSawtooth 0x7f090144
 int id right 0x7f090145
 int id rightToLeft 0x7f090146
@@ -2121,7 +2122,6 @@ int id search_bar 0x7f090156
 int id search_btn 0x7f090157
 int id search_button 0x7f090158
 int id search_close_btn 0x7f090159
-int id search_edit 0x7f09015a
 int id search_edit_frame 0x7f09015b
 int id search_go_btn 0x7f09015c
 int id search_mag_icon 0x7f09015d

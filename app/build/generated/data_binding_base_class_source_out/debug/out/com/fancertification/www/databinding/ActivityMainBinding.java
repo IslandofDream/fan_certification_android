@@ -5,10 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.fancertification.www.R;
@@ -21,16 +21,16 @@ public final class ActivityMainBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button searchBtn;
+  public final RecyclerView recyclerView;
 
   @NonNull
-  public final EditText searchEdit;
+  public final Button searchBtn;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button searchBtn,
-      @NonNull EditText searchEdit) {
+  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
+      @NonNull RecyclerView recyclerView, @NonNull Button searchBtn) {
     this.rootView = rootView;
+    this.recyclerView = recyclerView;
     this.searchBtn = searchBtn;
-    this.searchEdit = searchEdit;
   }
 
   @Override
@@ -60,19 +60,19 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.recyclerView;
+      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
+      if (recyclerView == null) {
+        break missingId;
+      }
+
       id = R.id.search_btn;
       Button searchBtn = ViewBindings.findChildViewById(rootView, id);
       if (searchBtn == null) {
         break missingId;
       }
 
-      id = R.id.search_edit;
-      EditText searchEdit = ViewBindings.findChildViewById(rootView, id);
-      if (searchEdit == null) {
-        break missingId;
-      }
-
-      return new ActivityMainBinding((ConstraintLayout) rootView, searchBtn, searchEdit);
+      return new ActivityMainBinding((ConstraintLayout) rootView, recyclerView, searchBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

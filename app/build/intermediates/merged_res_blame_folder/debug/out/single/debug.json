@@ -16,12 +16,12 @@
         "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/example_adapter_item.xml"
     },
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_ic_search.xml.flat",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable/ic_search.xml"
-    },
-    {
         "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable-v24_playstore1.png.flat",
         "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable-v24/playstore1.png"
+    },
+    {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_ic_search.xml.flat",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable/ic_search.xml"
     },
     {
         "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher.png.flat",

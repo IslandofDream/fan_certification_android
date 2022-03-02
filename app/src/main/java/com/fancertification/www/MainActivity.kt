@@ -20,18 +20,19 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 
- class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
-     val sdata: ArrayList<SearchData> = ArrayList<SearchData>()
+    val sdata: ArrayList<SearchData> = ArrayList<SearchData>()
     val serverKey = "AIzaSyAMK7BBcUlJ81DjvkGL3mmPAZCcJeSjzRo"
+    lateinit var utubeAdapter: UtubeAdapter
 
     //  UtubeAdapter utubeAdapter;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.searchBtn.setOnClickListener {
-                searchTask().execute();
+            searchTask().execute();
         }
 
         setContentView(binding.root)
@@ -46,23 +47,23 @@ import java.net.URL
         override fun doInBackground(vararg params: Void?): Void? {
             try {
                 //paringJsonData(getUtube())
-                getUtube()
+                paringJsonData(getUtube())
+                Log.d("result!!!", sdata.toString())
             } catch (e: JSONException) {
                 // TODO Auto-generated catch block
-                Log.d("myJsonError",e.toString())
+                Log.d("myJsonError", e.toString())
                 e.printStackTrace()
             } catch (e: IOException) {
-                Log.d("myIOError",e.toString())
+                Log.d("myIOError", e.toString())
                 e.printStackTrace()
             }
             return null
         }
 
-        override fun onPostExecute(result: Void?) {/*
+        override fun onPostExecute(result: Void?) {
             utubeAdapter = UtubeAdapter(this@MainActivity, sdata)
-            recyclerview.setAdapter(utubeAdapter)
-            utubeAdapter.notifyDataSetChanged()*/
-            Log.d("result", result.toString())
+            binding.recyclerView.adapter = utubeAdapter
+            utubeAdapter.notifyDataSetChanged()
         }
 
     }
@@ -70,7 +71,7 @@ import java.net.URL
     @Throws(IOException::class)
     fun getUtube(): JSONObject? {
         val originUrl = ("https://www.googleapis.com/youtube/v3/search?"
-                + "part=snippet&q=" + "blackpink"+"&type=channel"
+                + "part=snippet&q=" + "blackpink" + "&type=channel"
                 + "&key=" + serverKey + "&maxResults=20")
         val myUrl = String.format(originUrl)
         val url = URL(myUrl)
@@ -87,7 +88,6 @@ import java.net.URL
         while (reader.readLine().also { line = it } != null) {
             response.append(line)
         }
-        println("검색결과$response")
         result = response.toString()
         var jsonObject = JSONObject()
         try {
@@ -99,13 +99,14 @@ import java.net.URL
         Log.d("response", jsonObject.toString())
         return jsonObject
     }
-/*
+
     @Throws(JSONException::class)
-    private fun paringJsonData(jsonObject: JSONObject) {
+    private fun paringJsonData(jsonObject: JSONObject?) {
         //재검색할때 데이터들이 쌓이는걸 방지하기 위해 리스트를 초기화 시켜준다.
         // sdata.clear();
-        val contacts = jsonObject.getJSONArray("items")
-        for (i in 0 until contacts.length()) {
+        var vodid = ""
+        val contacts = jsonObject?.getJSONArray("items")
+        for (i in 0 until contacts!!.length()) {
             val c = contacts.getJSONObject(i)
             val kind = c.getJSONObject("id").getString("kind") // 종류를 체크하여 playlist도 저장
             vodid = if (kind == "youtube#video") {
@@ -116,7 +117,7 @@ import java.net.URL
                 // 재생시
                 // 필요합니다.
             } else {
-                c.getJSONObject("id").getString("playlistId") // 유튜브
+                c.getJSONObject("id").getString("channelId") // 유튜브
             }
             val title = c.getJSONObject("snippet").getString("title") //유튜브 제목을 받아옵니다
             val changString: String = stringToHtmlSign(title)
@@ -128,20 +129,18 @@ import java.net.URL
             //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
             sdata.add(SearchData(vodid, changString, imgUrl, date))
         }
-    }*/
+    }
 
     //var vodid = ""
 
-//    //영상 제목을 받아올때 " ' 문자가 그대로 출력되기 때문에 다른 문자로 대체 해주기 위해 사용하는 메서드
-//    private String stringToHtmlSign(String str) {
-//        return str.replaceAll("&", "[&]")
-//            .replaceAll("[<]", "<")
-//            .replaceAll("[>]", ">")
-//            .replaceAll(""", "'")
-//                .replaceAll("'", "'");
-//    }
-
-
+    //영상 제목을 받아올때 " ' 문자가 그대로 출력되기 때문에 다른 문자로 대체 해주기 위해 사용하는 메서드
+    private fun stringToHtmlSign(str: String): String {
+        return str.replace("&", "[&]")
+            .replace("[<]", "<")
+            .replace("[>]", ">")
+            .replace("\"", "\'")
+            .replace("'", "'");
+    }
 
 
 }

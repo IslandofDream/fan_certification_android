@@ -2100,6 +2100,7 @@ id pwText
 id radio
 id ratio
 id rectangles
+id recyclerView
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2122,7 +2123,6 @@ id search_bar
 id search_btn
 id search_button
 id search_close_btn
-id search_edit
 id search_edit_frame
 id search_go_btn
 id search_mag_icon
