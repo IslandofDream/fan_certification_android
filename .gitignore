@@ -81,6 +81,8 @@ proguard/
 *.ipr
 *~
 *.swp
+*.tab
+*.at
 
 # Keystore files
 
