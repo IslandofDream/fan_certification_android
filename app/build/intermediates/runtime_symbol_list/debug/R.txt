@@ -26,6 +26,13 @@ int anim design_bottom_sheet_slide_in 0x7f010018
 int anim design_bottom_sheet_slide_out 0x7f010019
 int anim design_snackbar_in 0x7f01001a
 int anim design_snackbar_out 0x7f01001b
+int anim fragment_close_enter 0x7f01001f
+int anim fragment_close_exit 0x7f010020
+int anim fragment_fade_enter 0x7f010021
+int anim fragment_fade_exit 0x7f010022
+int anim fragment_fast_out_extra_slow_in 0x7f010023
+int anim fragment_open_enter 0x7f010024
+int anim fragment_open_exit 0x7f010025
 int anim mtrl_bottom_sheet_slide_in 0x7f01001c
 int anim mtrl_bottom_sheet_slide_out 0x7f01001d
 int anim mtrl_card_lowers_interpolator 0x7f01001e
@@ -975,6 +982,9 @@ int color background_floating_material_light 0x7f05001e
 int color background_material_dark 0x7f05001f
 int color background_material_light 0x7f050020
 int color black 0x7f050021
+int color blue1 0x7f0500e6
+int color blue2 0x7f0500e7
+int color blue3 0x7f0500e8
 int color bright_foreground_disabled_material_dark 0x7f050022
 int color bright_foreground_disabled_material_light 0x7f050023
 int color bright_foreground_inverse_material_dark 0x7f050024
@@ -1004,6 +1014,8 @@ int color common_google_signin_btn_text_light_disabled 0x7f05003b
 int color common_google_signin_btn_text_light_focused 0x7f05003c
 int color common_google_signin_btn_text_light_pressed 0x7f05003d
 int color common_google_signin_btn_tint 0x7f05003e
+int color darkgray1 0x7f0500e9
+int color darkgray2 0x7f0500ea
 int color design_bottom_navigation_shadow_color 0x7f05003f
 int color design_box_stroke_color 0x7f050040
 int color design_dark_default_color_background 0x7f050041
@@ -1050,9 +1062,14 @@ int color error_color_material_dark 0x7f050069
 int color error_color_material_light 0x7f05006a
 int color foreground_material_dark 0x7f05006b
 int color foreground_material_light 0x7f05006c
+int color gray1 0x7f0500eb
+int color gray2 0x7f0500ec
 int color highlighted_text_material_dark 0x7f05006d
 int color highlighted_text_material_light 0x7f05006e
 int color ic_launcher_background 0x7f05006f
+int color lightgray1 0x7f0500ed
+int color lightgray2 0x7f0500ee
+int color mainblue 0x7f0500ef
 int color material_blue_grey_800 0x7f050070
 int color material_blue_grey_900 0x7f050071
 int color material_blue_grey_950 0x7f050072
@@ -1152,12 +1169,14 @@ int color purple_200 0x7f0500cf
 int color purple_500 0x7f0500d0
 int color purple_700 0x7f0500d1
 int color radiobutton_themeable_attribute_color 0x7f0500d2
+int color red 0x7f0500f0
 int color ripple_material_dark 0x7f0500d3
 int color ripple_material_light 0x7f0500d4
 int color secondary_text_default_material_dark 0x7f0500d5
 int color secondary_text_default_material_light 0x7f0500d6
 int color secondary_text_disabled_material_dark 0x7f0500d7
 int color secondary_text_disabled_material_light 0x7f0500d8
+int color subblue 0x7f0500f1
 int color switch_thumb_disabled_material_dark 0x7f0500d9
 int color switch_thumb_disabled_material_light 0x7f0500da
 int color switch_thumb_material_dark 0x7f0500db
@@ -1171,6 +1190,7 @@ int color test_mtrl_calendar_day_selected 0x7f0500e2
 int color tooltip_background_dark 0x7f0500e3
 int color tooltip_background_light 0x7f0500e4
 int color white 0x7f0500e5
+int color yellow 0x7f0500f2
 int dimen abc_action_bar_content_inset_material 0x7f060000
 int dimen abc_action_bar_content_inset_with_nav 0x7f060001
 int dimen abc_action_bar_default_height_material 0x7f060002
@@ -1651,6 +1671,9 @@ int drawable abc_textfield_search_material 0x7f07005b
 int drawable abc_vector_test 0x7f07005c
 int drawable avd_hide_password 0x7f07005d
 int drawable avd_show_password 0x7f07005e
+int drawable bangtantv 0x7f0700ad
+int drawable bigbang 0x7f0700ae
+int drawable blackpink 0x7f0700af
 int drawable btn_checkbox_checked_mtrl 0x7f07005f
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f070060
 int drawable btn_checkbox_unchecked_mtrl 0x7f070061
@@ -1686,13 +1709,24 @@ int drawable design_password_eye 0x7f07007e
 int drawable design_snackbar_background 0x7f07007f
 int drawable googleg_disabled_color_18 0x7f070080
 int drawable googleg_standard_color_18 0x7f070081
+int drawable hybe_labels 0x7f0700b0
+int drawable ic_arrow_left 0x7f0700b1
+int drawable ic_arrow_rignt 0x7f0700b2
 int drawable ic_clock_black_24dp 0x7f070082
+int drawable ic_delete 0x7f0700b3
+int drawable ic_info 0x7f0700b4
 int drawable ic_keyboard_black_24dp 0x7f070083
 int drawable ic_launcher_foreground 0x7f070084
 int drawable ic_mtrl_checked_circle 0x7f070085
 int drawable ic_mtrl_chip_checked_black 0x7f070086
 int drawable ic_mtrl_chip_checked_circle 0x7f070087
 int drawable ic_mtrl_chip_close_circle 0x7f070088
+int drawable ic_search 0x7f0700b5
+int drawable ic_setting 0x7f0700b6
+int drawable ic_star 0x7f0700b7
+int drawable ic_youtube 0x7f0700b8
+int drawable jane_asmr 0x7f0700b9
+int drawable kbs_world_tv 0x7f0700ba
 int drawable material_cursor_drawable 0x7f070089
 int drawable material_ic_calendar_black_24dp 0x7f07008a
 int drawable material_ic_clear_black_24dp 0x7f07008b
@@ -1725,10 +1759,22 @@ int drawable notification_template_icon_bg 0x7f0700a5
 int drawable notification_template_icon_low_bg 0x7f0700a6
 int drawable notification_tile_bg 0x7f0700a7
 int drawable notify_panel_notification_icon_bg 0x7f0700a8
+int drawable onemillion_dance_stdio 0x7f0700bb
+int drawable onethek 0x7f0700bc
 int drawable playstore1 0x7f0700a9
+int drawable stone_music_entertainment 0x7f0700bd
 int drawable test_custom_background 0x7f0700aa
 int drawable tooltip_frame_dark 0x7f0700ab
 int drawable tooltip_frame_light 0x7f0700ac
+int font font_res 0x7f120000
+int font gsans_ttf_bold 0x7f120001
+int font gsans_ttf_light 0x7f120002
+int font gsans_ttf_medium 0x7f120003
+int font notosans_black 0x7f120004
+int font notosans_bold 0x7f120005
+int font notosans_light 0x7f120006
+int font notosans_medium 0x7f120007
+int font notosans_regular 0x7f120008
 int id ALT 0x7f080000
 int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
@@ -1861,6 +1907,7 @@ int id custom 0x7f080080
 int id customPanel 0x7f080081
 int id cut 0x7f080082
 int id dark 0x7f080083
+int id dataBinding 0x7f0801bf
 int id date_picker_actions 0x7f080084
 int id decelerate 0x7f080085
 int id decelerateAndComplete 0x7f080086
@@ -1912,8 +1959,10 @@ int id flip 0x7f0800b3
 int id floating 0x7f0800b4
 int id forever 0x7f0800b5
 int id forgotPW 0x7f0800b6
+int id fragment_container_view_tag 0x7f0801c0
 int id ghost_view 0x7f0800b7
 int id ghost_view_holder 0x7f0800b8
+int id glide_custom_view_target_tag 0x7f0801c1
 int id gone 0x7f0800b9
 int id graph 0x7f0800ba
 int id graph_wrap 0x7f0800bb
@@ -2024,6 +2073,8 @@ int id notification_main_column_container 0x7f080123
 int id off 0x7f080124
 int id okBtn 0x7f080125
 int id on 0x7f080126
+int id onAttachStateChangeListener 0x7f0801c2
+int id onDateChanged 0x7f0801c3
 int id outline 0x7f080127
 int id outward 0x7f080128
 int id packed 0x7f080129
@@ -2067,8 +2118,10 @@ int id scrollView 0x7f08014e
 int id scrollable 0x7f08014f
 int id search_badge 0x7f080150
 int id search_bar 0x7f080151
+int id search_btn 0x7f0801c4
 int id search_button 0x7f080152
 int id search_close_btn 0x7f080153
+int id search_edit 0x7f0801c5
 int id search_edit_frame 0x7f080154
 int id search_go_btn 0x7f080155
 int id search_mag_icon 0x7f080156
@@ -2116,6 +2169,8 @@ int id stop 0x7f08017f
 int id stretch 0x7f080180
 int id submenuarrow 0x7f080181
 int id submit_area 0x7f080182
+int id subscription_btn 0x7f0801c6
+int id subscription_tv 0x7f0801c7
 int id tabMode 0x7f080183
 int id tag_accessibility_actions 0x7f080184
 int id tag_accessibility_clickable_spans 0x7f080185
@@ -2138,6 +2193,7 @@ int id textStart 0x7f080195
 int id textTop 0x7f080196
 int id textView3 0x7f080197
 int id textView5 0x7f080198
+int id textWatcher 0x7f0801c8
 int id text_input_end_icon 0x7f080199
 int id text_input_error_icon 0x7f08019a
 int id text_input_start_icon 0x7f08019b
@@ -2150,7 +2206,9 @@ int id textinput_suffix_text 0x7f0801a1
 int id time 0x7f0801a2
 int id title 0x7f0801a3
 int id titleDividerNoCustom 0x7f0801a4
+int id title_image 0x7f0801c9
 int id title_template 0x7f0801a5
+int id title_tv 0x7f0801ca
 int id toggle 0x7f0801a6
 int id top 0x7f0801a7
 int id topPanel 0x7f0801a8
@@ -2169,7 +2227,9 @@ int id unlabeled 0x7f0801b4
 int id up 0x7f0801b5
 int id useLogo 0x7f0801b6
 int id view_offset_helper 0x7f0801b7
+int id view_tree_view_model_store_owner 0x7f0801cb
 int id visible 0x7f0801b8
+int id visible_removing_fragment_view_tag 0x7f0801cc
 int id wide 0x7f0801b9
 int id withText 0x7f0801ba
 int id withinBounds 0x7f0801bb
@@ -2257,6 +2317,7 @@ int layout design_navigation_menu 0x7f0b002c
 int layout design_navigation_menu_item 0x7f0b002d
 int layout design_text_input_end_icon 0x7f0b002e
 int layout design_text_input_start_icon 0x7f0b002f
+int layout example_adapter_item 0x7f0b0072
 int layout material_chip_input_combo 0x7f0b0030
 int layout material_clock_display 0x7f0b0031
 int layout material_clock_display_divider 0x7f0b0032
@@ -3990,6 +4051,13 @@ int[] styleable ForegroundLinearLayout { 0x01010109, 0x01010200, 0x7f030173 }
 int styleable ForegroundLinearLayout_android_foreground 0
 int styleable ForegroundLinearLayout_android_foregroundGravity 1
 int styleable ForegroundLinearLayout_foregroundInsidePadding 2
+int[] styleable Fragment { 0x01010003, 0x010100d0, 0x010100d1 }
+int styleable Fragment_android_name 0
+int styleable Fragment_android_id 1
+int styleable Fragment_android_tag 2
+int[] styleable FragmentContainerView { 0x01010003, 0x010100d1 }
+int styleable FragmentContainerView_android_name 0
+int styleable FragmentContainerView_android_tag 1
 int[] styleable GradientColor { 0x0101019d, 0x0101019e, 0x010101a1, 0x010101a2, 0x010101a3, 0x010101a4, 0x01010201, 0x0101020b, 0x01010510, 0x01010511, 0x01010512, 0x01010513 }
 int styleable GradientColor_android_startColor 0
 int styleable GradientColor_android_endColor 1
