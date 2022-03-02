@@ -6,17 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 import android.os.AsyncTask
 
-import android.widget.EditText
-import androidx.recyclerview.widget.LinearLayoutManager
-
-import android.R
-import android.R.attr
-
-import android.R.attr.button
-import android.view.View
 import org.json.JSONException
 
-import android.R.attr.button
 import org.json.JSONObject
 
 import android.util.Log
@@ -79,8 +70,8 @@ import java.net.URL
     @Throws(IOException::class)
     fun getUtube(): JSONObject? {
         val originUrl = ("https://www.googleapis.com/youtube/v3/search?"
-                + "part=snippet&q=" + "blackpink"
-                + "&key=" + serverKey + "&maxResults=50")
+                + "part=snippet&q=" + "blackpink"+"&type=channel"
+                + "&key=" + serverKey + "&maxResults=20")
         val myUrl = String.format(originUrl)
         val url = URL(myUrl)
         val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
@@ -93,7 +84,6 @@ import java.net.URL
         val inputStream: InputStream = connection.getInputStream()
         val reader = BufferedReader(InputStreamReader(inputStream))
         val response = StringBuffer()
-        Log.d("inputStream!", reader?.toString())
         while (reader.readLine().also { line = it } != null) {
             response.append(line)
         }
