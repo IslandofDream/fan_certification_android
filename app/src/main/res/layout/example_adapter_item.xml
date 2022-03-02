@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <data>
+
+        <variable
+            name="title"
+            type="java.lang.String" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginHorizontal="16dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/title_image"
+            android:layout_width="44dp"
+            android:layout_height="44dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/title_tv"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:fontFamily="@font/notosans_bold"
+                android:gravity="top"
+                android:text="asdasdasdas"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/subscription_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="19dp"
+                android:fontFamily="@font/notosans_light"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+        <ImageButton
+            android:id="@+id/subscription_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_star"
+            android:background="#00000000"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+</layout>

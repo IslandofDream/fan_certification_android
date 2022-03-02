@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <font
+        android:font="@font/gsans_ttf_bold"
+        />
+    <font
+        android:font="@font/gsans_ttf_light"/>
+    <font
+        android:font="@font/gsans_ttf_medium"/>
+    <font
+        android:font="@font/notosans_black"/>
+    <font
+        android:font="@font/notosans_bold"/>
+    <font
+        android:font="@font/notosans_light"/>
+    <font
+        android:font="@font/notosans_medium"/>
+    <font
+        android:font="@font/notosans_regular"/>
+</font-family>
