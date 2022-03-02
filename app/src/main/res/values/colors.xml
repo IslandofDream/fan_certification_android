@@ -19,8 +19,10 @@
     <color name="white">#FFFFFF</color>
     <color name="lightgray1">#F5F5F5</color>
     <color name="lightgray2">#DBDCDC</color>
+    <color name="lightgray3">#F5F6F7</color>
     <color name="gray1">#B5B7BA</color>
     <color name="gray2">#909398</color>
+    <color name="selectRed">#FF5454</color>
     <color name="darkgray1">#5C5F66</color>
     <color name="darkgray2">#292C34</color>
 

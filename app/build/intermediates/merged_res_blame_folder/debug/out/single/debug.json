@@ -16,12 +16,12 @@
         "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/example_adapter_item.xml"
     },
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable-v24_playstore1.png.flat",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable-v24/playstore1.png"
-    },
-    {
         "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_ic_search.xml.flat",
         "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable/ic_search.xml"
+    },
+    {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable-v24_playstore1.png.flat",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable-v24/playstore1.png"
     },
     {
         "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher.png.flat",
@@ -148,6 +148,14 @@
         "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/mipmap-xxxhdpi/ic_launcher2.png"
     },
     {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_border.xml.flat",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable/border.xml"
+    },
+    {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/layout_fragment_setting.xml.flat",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/fragment_setting.xml"
+    },
+    {
         "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
     },
@@ -166,6 +174,14 @@
     {
         "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher_round2.xml.flat",
         "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round2.xml"
+    },
+    {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/layout_fragment_bookmark.xml.flat",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/fragment_bookmark.xml"
+    },
+    {
+        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/layout_search_fragment.xml.flat",
+        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/search_fragment.xml"
     },
     {
         "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/font_notosans_bold.otf.flat",

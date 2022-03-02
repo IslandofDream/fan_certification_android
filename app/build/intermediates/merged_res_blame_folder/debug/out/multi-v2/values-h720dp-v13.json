@@ -4,7 +4,7 @@
             "outputFile": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/Users/jerry/.gradle/caches/transforms-3/023706e9fc52a6cdc68aa2c00792bbc6/transformed/appcompat-1.2.0/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "/Users/jerry/.gradle/caches/transforms-3/0e60c42be82399573967eb23fa071a14/transformed/appcompat-1.2.0/res/values-h720dp-v13/values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

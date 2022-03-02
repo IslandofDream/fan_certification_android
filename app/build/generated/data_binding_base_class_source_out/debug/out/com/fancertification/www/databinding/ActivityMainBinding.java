@@ -4,38 +4,38 @@ package com.fancertification.www.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
+import androidx.viewpager2.widget.ViewPager2;
 import com.fancertification.www.R;
+import com.google.android.material.tabs.TabLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
-  public final RecyclerView recyclerView;
+  public final TabLayout myTabIconview;
 
   @NonNull
-  public final Button searchBtn;
+  public final ViewPager2 viewPager;
 
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull RecyclerView recyclerView, @NonNull Button searchBtn) {
+  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull TabLayout myTabIconview,
+      @NonNull ViewPager2 viewPager) {
     this.rootView = rootView;
-    this.recyclerView = recyclerView;
-    this.searchBtn = searchBtn;
+    this.myTabIconview = myTabIconview;
+    this.viewPager = viewPager;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -60,19 +60,19 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.recyclerView;
-      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerView == null) {
+      id = R.id.my_tab_iconview;
+      TabLayout myTabIconview = ViewBindings.findChildViewById(rootView, id);
+      if (myTabIconview == null) {
         break missingId;
       }
 
-      id = R.id.search_btn;
-      Button searchBtn = ViewBindings.findChildViewById(rootView, id);
-      if (searchBtn == null) {
+      id = R.id.viewPager;
+      ViewPager2 viewPager = ViewBindings.findChildViewById(rootView, id);
+      if (viewPager == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, recyclerView, searchBtn);
+      return new ActivityMainBinding((LinearLayout) rootView, myTabIconview, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

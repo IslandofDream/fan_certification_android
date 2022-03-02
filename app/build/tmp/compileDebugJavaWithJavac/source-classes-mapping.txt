@@ -1,3 +1,7 @@
+com/fancertification/www/databinding/SearchFragmentBinding.java
+ com.fancertification.www.databinding.SearchFragmentBinding
+com/fancertification/www/databinding/FragmentBookmarkBinding.java
+ com.fancertification.www.databinding.FragmentBookmarkBinding
 com/fancertification/www/BR.java
  com.fancertification.www.BR
 com/fancertification/www/databinding/ExampleAdapterItemBinding.java
@@ -10,6 +14,8 @@ androidx/databinding/DataBinderMapperImpl.java
  androidx.databinding.DataBinderMapperImpl
 com/fancertification/www/databinding/ActivityLoginBinding.java
  com.fancertification.www.databinding.ActivityLoginBinding
+com/fancertification/www/databinding/FragmentSettingBinding.java
+ com.fancertification.www.databinding.FragmentSettingBinding
 com/fancertification/www/DataBindingTriggerClass.java
  com.fancertification.www.DataBindingTriggerClass
 androidx/databinding/library/baseAdapters/BR.java
