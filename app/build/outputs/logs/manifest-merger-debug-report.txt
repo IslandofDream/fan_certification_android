@@ -157,7 +157,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/jerr
 	android:allowBackup
 		ADDED from /Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from /Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:11:9-54
+		ADDED from /Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:11:9-62
 activity#com.fancertification.www.MainActivity
 ADDED from /Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:12:9-15:20
 	android:exported

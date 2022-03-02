@@ -44,8 +44,8 @@
 26        android:supportsRtl="true"
 26-->/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:10:9-35
 27        android:testOnly="true"
-28        android:theme="@style/Theme.FanCertification" >
-28-->/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:11:9-54
+28        android:theme="@style/Theme.Design.Light.NoActionBar" >
+28-->/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:11:9-62
 29        <activity
 29-->/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:12:9-15:20
 30            android:name="com.fancertification.www.MainActivity"

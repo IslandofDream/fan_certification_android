@@ -6,6 +6,22 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="button">#FF009688</color>
+
+
+    <color name="blue1">#F5F7FF</color>
+    <color name="blue2">#E6EBFF</color>
+    <color name="blue3">#aab9ff</color>
+    <color name="subblue">#6F87FF</color>
+    <color name="mainblue">#5471FF</color>
+    <color name="red">#F25555</color>
+    <color name="yellow">#FFD833</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lightgray1">#F5F5F5</color>
+    <color name="lightgray2">#DBDCDC</color>
+    <color name="gray1">#B5B7BA</color>
+    <color name="gray2">#909398</color>
+    <color name="darkgray1">#5C5F66</color>
+    <color name="darkgray2">#292C34</color>
+
 </resources>

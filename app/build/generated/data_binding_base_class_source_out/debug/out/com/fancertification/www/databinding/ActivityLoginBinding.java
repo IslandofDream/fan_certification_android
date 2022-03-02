@@ -102,9 +102,6 @@ public final class ActivityLoginBinding implements ViewBinding {
   public final TextView textView3;
 
   @NonNull
-  public final TextView textView4;
-
-  @NonNull
   public final TextView textView5;
 
   private ActivityLoginBinding(@NonNull ConstraintLayout rootView, @NonNull Button LoginBtn,
@@ -119,7 +116,7 @@ public final class ActivityLoginBinding implements ViewBinding {
       @NonNull Button signupBtn, @NonNull TextInputLayout signupInputLayout,
       @NonNull TextInputLayout signupInputLayout2, @NonNull TextInputLayout signupInputLayout3,
       @NonNull ConstraintLayout signupPopup, @NonNull TextView textView3,
-      @NonNull TextView textView4, @NonNull TextView textView5) {
+      @NonNull TextView textView5) {
     this.rootView = rootView;
     this.LoginBtn = LoginBtn;
     this.cancleBtn = cancleBtn;
@@ -146,7 +143,6 @@ public final class ActivityLoginBinding implements ViewBinding {
     this.signupInputLayout3 = signupInputLayout3;
     this.signupPopup = signupPopup;
     this.textView3 = textView3;
-    this.textView4 = textView4;
     this.textView5 = textView5;
   }
 
@@ -327,12 +323,6 @@ public final class ActivityLoginBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView4;
-      TextView textView4 = ViewBindings.findChildViewById(rootView, id);
-      if (textView4 == null) {
-        break missingId;
-      }
-
       id = R.id.textView5;
       TextView textView5 = ViewBindings.findChildViewById(rootView, id);
       if (textView5 == null) {
@@ -343,7 +333,7 @@ public final class ActivityLoginBinding implements ViewBinding {
           checkMale, emailSignupText, emailText, forgotPW, imageView, imageView2, linearLayout,
           loginEmailInputLayout, loginLayout, loginpwInputLayout2, nameSignupText, okBtn,
           progressBar, pwSignupText, pwText, selectGender, signupBtn, signupInputLayout,
-          signupInputLayout2, signupInputLayout3, signupPopup, textView3, textView4, textView5);
+          signupInputLayout2, signupInputLayout3, signupPopup, textView3, textView5);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

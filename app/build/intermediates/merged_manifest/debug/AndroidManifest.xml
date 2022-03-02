@@ -25,7 +25,7 @@
         android:roundIcon="@mipmap/ic_launcher_round2"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.FanCertification" >
+        android:theme="@style/Theme.Design.Light.NoActionBar" >
         <activity
             android:name="com.fancertification.www.MainActivity"
             android:exported="true" >
