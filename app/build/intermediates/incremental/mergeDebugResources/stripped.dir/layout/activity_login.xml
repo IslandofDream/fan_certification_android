@@ -37,8 +37,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                app:boxStrokeColor="@color/black"
-                app:boxStrokeWidth="1dp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"
                 >

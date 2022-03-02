@@ -1,5 +1,21 @@
+com/fancertification/www/BR.java
+ com.fancertification.www.BR
+com/fancertification/www/databinding/ExampleAdapterItemBinding.java
+ com.fancertification.www.databinding.ExampleAdapterItemBinding
+com/fancertification/www/DataBinderMapperImpl.java
+ com.fancertification.www.DataBinderMapperImpl
+ com.fancertification.www.DataBinderMapperImpl$InnerBrLookup
+ com.fancertification.www.DataBinderMapperImpl$InnerLayoutIdLookup
+androidx/databinding/DataBinderMapperImpl.java
+ androidx.databinding.DataBinderMapperImpl
 com/fancertification/www/databinding/ActivityLoginBinding.java
  com.fancertification.www.databinding.ActivityLoginBinding
+com/fancertification/www/DataBindingTriggerClass.java
+ com.fancertification.www.DataBindingTriggerClass
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
 com/fancertification/www/BuildConfig.java
  com.fancertification.www.BuildConfig
 com/fancertification/www/databinding/ActivityMainBinding.java
