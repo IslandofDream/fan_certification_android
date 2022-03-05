@@ -1,4 +1,5 @@
 package com.fancertification.www
+import android.content.Context
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,7 +11,7 @@ import com.fancertification.www.databinding.ExampleAdapterItemBinding
 import kotlin.collections.ArrayList
 
 
-class BookmarkAdapter(list: ArrayList<ExampleData>?) :
+class BookmarkAdapter(var context: Context, list: ArrayList<ExampleData>?) :
     RecyclerView.Adapter<BookmarkAdapter.BookMarkViewHolder>() {
 
 
@@ -68,7 +69,7 @@ class BookmarkAdapter(list: ArrayList<ExampleData>?) :
         val imageUrl: String = mList!![position].imageUrl
         //영상 썸네일 세팅
         Glide.with(viewholder.image)
-            .load(imageUrl)
+            .load(imageUrl).circleCrop()
             .into(viewholder.image)
     }
 

@@ -45,7 +45,6 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
                         cursor.getString(2),
                         cursor.getString(3),
                         cursor.getInt(4)
-
                     )
                 )
             }
@@ -77,7 +76,7 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         values.put(CHANNELTITLE, data.channeltitle)
         values.put(THUMBNAIL, data.imageUrl)
         values.put(DESCRIPTION, data.description)
-        values.put(CHECKED, 1)
+        values.put(CHECKED, data.checked)
         val db = writableDatabase
         val flag = db.insert(TABLE_NAME, null, values) > 0
         db.close()
@@ -116,11 +115,11 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
 
     override fun onCreate(db: SQLiteDatabase?) { // 데이터베이스 처음 생성될때
         val create_table = "create table if not exists $TABLE_NAME(" +
-                "$CHANNELID text, " +
-                "$CHANNELTITLE text, " +
-                "$THUMBNAIL text, " +
-                "$DESCRIPTION text, " +
-                "$CHECKED integer);"
+                "$CHANNELID TEXT PRIMARY KEY, " +
+                "$CHANNELTITLE TEXT, " +
+                "$THUMBNAIL TEXT, " +
+                "$DESCRIPTION TEXT, " +
+                "$CHECKED INTEGER);"
 
         db!!.execSQL(create_table)
         // 테이블이 존재하지 않으면 생성 할거다

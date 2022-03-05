@@ -16,7 +16,7 @@ class FragmentHandler(fragmentActivity: FragmentActivity) :
 
     override fun createFragment(position: Int): Fragment {  //뷰페이저 페이지 전환
         return when (position) {
-            0 -> BookmarkFragment()
+            0 -> BookmarkChannel()
             1 -> SearchFragment()
             2 -> SettingFragment()
             else -> SearchFragment()
