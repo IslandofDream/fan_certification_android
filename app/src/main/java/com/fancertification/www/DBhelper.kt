@@ -17,8 +17,9 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         val TABLE_NAME = "BookMarks" //테이블 이름
         val CHANNELID = "channelid" // 채널 아이디
         val CHANNELTITLE = "channeltitle" // 채널 제목
-        val THUMBNAIL = "thumbnail"// 테이블 컬럼들
-        val DESCRIPTION = "description"// 테이블 컬럼들
+        val THUMBNAIL = "thumbnail"// 썸네일을 위한 이미지 URL
+        val DESCRIPTION = "description"// 채널 설명
+        val POSITION = "position" // 북마크프래그먼트에서의 뷰위치
         val CHECKED = "checked"// 북마크
     }
 
@@ -32,7 +33,7 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
 
     fun getALLRecord(): ArrayList<ExampleData> { // 모든 데이터 반환 북마크 프래그먼트에 출력하기 위함
         var data: ArrayList<ExampleData> = ArrayList()
-        val strsql = "select * from $TABLE_NAME order by LOWER($CHANNELID) ASC;"
+        val strsql = "select * from $TABLE_NAME order by LOWER($POSITION) ASC;"
         val db = readableDatabase
         val cursor = db.rawQuery(strsql, null)
         cursor.moveToFirst()
@@ -44,14 +45,15 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
-                        cursor.getInt(4)
+                        cursor.getInt(4),
+                        cursor.getInt(5)
                     )
                 )
             }
             else{
                 data.add(
                     ExampleData(
-                        "","원하는 채널을 저장해보세요.","","",0
+                        "","원하는 채널을 저장해보세요.","","",1,0
                     )
                 )
             }
@@ -70,12 +72,30 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         return cursor.count == 0
     }
 
+    fun upadatePosition(id:String, targetPos:Int) :Boolean{ // 위치 변경을 위한 함수
+        val strsql = "update $TABLE_NAME set $POSITION = '$targetPos' where $CHANNELID = '$id';"
+        val db = writableDatabase  //변경시킬꺼니까
+        val cursor = db.rawQuery(strsql,null)
+
+        if(cursor.count > 0){
+            cursor.close()
+            db.close()
+            return true
+        }
+        else{
+            cursor.close()
+            db.close()
+            return false
+        }
+    }
+
     fun insertchannel(data: ExampleData): Boolean { // 채널 삽입
         val values = ContentValues()
         values.put(CHANNELID, data.channelId)
         values.put(CHANNELTITLE, data.channeltitle)
         values.put(THUMBNAIL, data.imageUrl)
         values.put(DESCRIPTION, data.description)
+        values.put(POSITION, data.position)
         values.put(CHECKED, data.checked)
         val db = writableDatabase
         val flag = db.insert(TABLE_NAME, null, values) > 0
@@ -84,18 +104,18 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
     }
 
 
-    fun insertchanneltest(channelid :String, channeltitle: String, imageUrl: String, description: String): Boolean { // 채널 삽입
-        val values = ContentValues()
-        values.put(CHANNELID, channelid)
-        values.put(CHANNELTITLE, channeltitle)
-        values.put(THUMBNAIL, imageUrl)
-        values.put(DESCRIPTION, description)
-        values.put(CHECKED, 1)
-        val db = writableDatabase
-        val flag = db.insert(TABLE_NAME, null, values) > 0
-        db.close()
-        return flag
-    }
+//    fun insertchanneltest(channelid :String, channeltitle: String, imageUrl: String, description: String): Boolean { // 채널 삽입
+//        val values = ContentValues()
+//        values.put(CHANNELID, channelid)
+//        values.put(CHANNELTITLE, channeltitle)
+//        values.put(THUMBNAIL, imageUrl)
+//        values.put(DESCRIPTION, description)
+//        values.put(CHECKED, 1)
+//        val db = writableDatabase
+//        val flag = db.insert(TABLE_NAME, null, values) > 0
+//        db.close()
+//        return flag
+//    }
 
 
     fun deleteChannel(id: String): Boolean { // 채널 삭제 함수
@@ -119,6 +139,7 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
                 "$CHANNELTITLE TEXT, " +
                 "$THUMBNAIL TEXT, " +
                 "$DESCRIPTION TEXT, " +
+                "$POSITION INTEGER, " +
                 "$CHECKED INTEGER);"
 
         db!!.execSQL(create_table)

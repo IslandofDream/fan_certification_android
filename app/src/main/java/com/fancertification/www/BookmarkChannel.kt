@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.fancertification.www.databinding.FragmentBookmarkBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BookmarkChannel: Fragment() {
     lateinit var binding: FragmentBookmarkBinding
@@ -29,31 +31,38 @@ class BookmarkChannel: Fragment() {
         dBhelper = DBhelper(context)
             data = dBhelper.getALLRecord()
             bookmarkAdapter = BookmarkAdapter(requireContext(), data)
-//        data = dBhelper.getALLRecord()
+            //data = dBhelper.getALLRecord()
             list.adapter = bookmarkAdapter
-            bookmarkAdapter.notifyDataSetChanged()
+            //bookmarkAdapter.notifyDataSetChanged()
         val simpleCallBack = object : ItemTouchHelper.SimpleCallback( //스와이프 사용을 위함
             ItemTouchHelper.DOWN or ItemTouchHelper.UP
             , ItemTouchHelper.RIGHT){
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+                val curpos: Int = viewHolder.adapterPosition
+                val targetpos: Int = target.adapterPosition
+                bookmarkAdapter.refresh(curpos, targetpos)
+
+
                 return true
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val builder= AlertDialog.Builder(context) // 단어 삭제전 dialog로 확인 절차
+                val builder= AlertDialog.Builder(context) // 채널 삭제전 dialog로 확인 절차
                 builder.setTitle("채널 삭제")
                 builder.setMessage("채널을 삭제하시겠습니까?")
                 builder.setPositiveButton("예") { dialog, id ->
                     dBhelper.deleteChannel(data[viewHolder.adapterPosition].channelId)
-                    data.removeAt(viewHolder.adapterPosition)
+
                     //bookmarkAdapter.removeItem(viewHolder.adapterPosition) // 리싸이클러뷰 갱신
+                    data = dBhelper.getALLRecord() // 로컬 변수 갱신
                     bookmarkAdapter = BookmarkAdapter(requireContext(), data) // 스와이프 사용으로 arraylist가 변경되었으므로 목록을 복구 시켜놔야 한다.
-                    data = dBhelper.getALLRecord()
+
                     binding.list.adapter = bookmarkAdapter
                     Toast.makeText(context,"채널 삭제 성공", Toast.LENGTH_SHORT).show()
                 }
                 builder.setNegativeButton("아니오") { dialog, id -> dialog.dismiss()
                     Toast.makeText(context,"채널 삭제가 취소 되었습니다.", Toast.LENGTH_SHORT).show()
+                    data = dBhelper.getALLRecord() // 로컬 변수 갱신
                     bookmarkAdapter = BookmarkAdapter(requireContext(), data) // 스와이프 사용 취소가 되었으므로 목록을 복구 시켜놔야 한다.
                     binding.list.adapter = bookmarkAdapter
                 }
@@ -65,20 +74,23 @@ class BookmarkChannel: Fragment() {
         }
 
         binding.insert.setOnClickListener{
-            val smapleData = ExampleData("1234","삽입 테스트","https://picsum.photos/id/237/200/300","됐냐?",0)
+            binding.insertChannel.text
+            val smapleData = ExampleData(
+                binding.insertChannel.text.toString(),binding.insertChannel.text.toString(),"https://picsum.photos/id/237/200/300","됐냐?",
+                data.size,1
+            )
             val flag = dBhelper.insertchannel(smapleData)
-            Log.d("asdf", flag.toString())
             if(flag){
                 Toast.makeText(it.context, "삽입 성공", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(it.context, "삽입 실패", Toast.LENGTH_SHORT).show()
             }
-            bookmarkAdapter = BookmarkAdapter(requireContext(), dBhelper.getALLRecord())
+            data = dBhelper.getALLRecord() // 로컬 변수 갱신
+            bookmarkAdapter = BookmarkAdapter(requireContext(), data)
             binding.list.adapter = bookmarkAdapter
-            bookmarkAdapter.notifyDataSetChanged()
+            binding.insertChannel.text.clear()
+            //bookmarkAdapter.notifyDataSetChanged()
         }
-
-
         return binding.root
     }
 

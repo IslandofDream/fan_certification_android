@@ -42,8 +42,14 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ExampleData>?) :
         notifyItemRemoved(pos)
     }
 
-    fun refresh(){
-        notifyDataSetChanged()
+    fun refresh(curpos : Int, targetpos : Int){
+        notifyItemMoved(curpos,targetpos)
+        val dbhelper = DBhelper(context)
+        for(i in 0..mList!!.size)
+        {
+            //dbhelper.upadatePosition(mList!![].position)
+        }
+
     }
 
     override fun onCreateViewHolder(
@@ -58,7 +64,6 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ExampleData>?) :
     }
 
     override fun onBindViewHolder(viewholder: BookMarkViewHolder, position: Int) {
-
         //영상제목 세팅
         viewholder.title.setText(mList!![position].channeltitle)
         //날짜 세팅
@@ -71,6 +76,8 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ExampleData>?) :
         Glide.with(viewholder.image)
             .load(imageUrl).circleCrop()
             .into(viewholder.image)
+
+
     }
 
     override fun getItemCount(): Int {

@@ -12,6 +12,14 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
+    <EditText
+        android:id="@+id/insertChannel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="원하는 채널을 입력해주세요"
+        android:inputType="textPersonName" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
