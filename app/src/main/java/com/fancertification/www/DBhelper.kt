@@ -22,7 +22,7 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         val POSITION = "position" // 북마크프래그먼트에서의 뷰위치
         val CHECKED = "checked"// 북마크
     }
-
+//채널 아이디, 제목, 썸네일, 요약, 포지션, 구독자수, 구독기간(로컬) 정도까지는 만들어놔야할듯  지금 현재 포지션, 구독자수, 구독기간 관련해서 애트리뷰트가 없는듯합니다. Checked 대신 포지션으로 ㄱㄱ
     fun getCount(): Int { // 테이블의 총 튜플수 반환
         val strsql = "select * from $TABLE_NAME;"
         val db = readableDatabase
@@ -145,7 +145,12 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         db.close()
         return flag
     }
+    fun upDateBookmark(id:String, position:Int):String{
+//https://jong99.tistory.com/114 참고
 
+
+        return "Success"
+    }
 
     override fun onCreate(db: SQLiteDatabase?) { // 데이터베이스 처음 생성될때
         val create_table = "create table if not exists $TABLE_NAME(" +
