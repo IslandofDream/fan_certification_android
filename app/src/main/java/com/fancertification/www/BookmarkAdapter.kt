@@ -42,12 +42,13 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ExampleData>?) :
         notifyItemRemoved(pos)
     }
 
-    fun refresh(curpos : Int, targetpos : Int){
+    fun moveItem(curpos : Int, targetpos : Int){
         notifyItemMoved(curpos,targetpos)
         val dbhelper = DBhelper(context)
         for(i in 0..mList!!.size)
         {
-            //dbhelper.upadatePosition(mList!![].position)
+            //TODO 포지션 정보를 업데이트 갱신
+        //dbhelper.upadatePosition(mList!![].position)
         }
 
     }

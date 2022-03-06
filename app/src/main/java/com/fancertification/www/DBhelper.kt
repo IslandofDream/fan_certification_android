@@ -63,6 +63,20 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         return data
     }
 
+    fun getPosition(): ArrayList<Int> { // 모든 데이터 반환 북마크 프래그먼트에 출력하기 위함
+        var position: ArrayList<Int> = ArrayList()
+        val strsql = "select * from $TABLE_NAME order by LOWER($POSITION) ASC;"
+        val db = readableDatabase
+        val cursor = db.rawQuery(strsql, null)
+        cursor.moveToFirst()
+        do {
+            if(cursor.count != 0){ position.add(cursor.getInt(0)) }
+        } while (cursor.moveToNext())
+        cursor.close()
+        db.close()
+        return position
+    }
+
 
     fun checkoverbookmark(id: String): Boolean { // 검색 프래그먼트에서 검색결과를 띄울때 북마크 확인
         val strsql = "select * from $TABLE_NAME where $CHANNELID ='$id';"
@@ -72,21 +86,21 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         return cursor.count == 0
     }
 
-    fun upadatePosition(id:String, targetPos:Int) :Boolean{ // 위치 변경을 위한 함수
-        val strsql = "update $TABLE_NAME set $POSITION = '$targetPos' where $CHANNELID = '$id';"
+    fun upadatePosition(pos:Int, id:String) :Boolean{ // 위치 변경을 위한 함수
         val db = writableDatabase  //변경시킬꺼니까
-        val cursor = db.rawQuery(strsql,null)
-
-        if(cursor.count > 0){
-            cursor.close()
-            db.close()
-            return true
-        }
-        else{
-            cursor.close()
-            db.close()
-            return false
-        }
+            Log.e("dbpos",pos.toString())
+            val strsql = "update $TABLE_NAME set $POSITION = '$pos' where $CHANNELID = '$id';"
+            val cursor = db.rawQuery(strsql,null)
+            if(cursor.count > 0) {
+                cursor.close()
+                db.close()
+                return true
+            }
+            else{
+                cursor.close()
+                db.close()
+                return false
+            }
     }
 
     fun insertchannel(data: ExampleData): Boolean { // 채널 삽입
