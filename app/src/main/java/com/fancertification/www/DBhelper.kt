@@ -61,6 +61,29 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
         return data
     }
 
+    fun getALLChannleid(): ArrayList<String> { // 데이터의 아이디를 모두 반환
+        var data: ArrayList<String> = ArrayList()
+        val strsql = "select * from $TABLE_NAME;"
+        val db = readableDatabase
+        val cursor = db.rawQuery(strsql, null)
+        cursor.moveToFirst()
+        do {
+            if(cursor.count != 0){
+                data.add(
+                        cursor.getString(0)
+                )
+            }
+            else{
+                data.add("null")
+            }
+        } while (cursor.moveToNext())
+        cursor.close()
+        db.close()
+        return data
+    }
+
+
+
     fun getPosition(): ArrayList<Int> { // 모든 데이터 반환 북마크 프래그먼트에 출력하기 위함
         var position: ArrayList<Int> = ArrayList()
         val strsql = "select * from $TABLE_NAME order by LOWER($POSITION) ASC;"

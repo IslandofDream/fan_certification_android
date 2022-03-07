@@ -20,6 +20,7 @@ class BookmarkChannel : Fragment() {
     lateinit var dBhelper: DBhelper
     lateinit var bookmarkAdapter: BookmarkAdapter
     lateinit var data: ArrayList<SearchData>
+    lateinit var ids: ArrayList<String>
 //    lateinit var position: ArrayList<Int> // 화면상의 포지션
 
     override fun onCreateView(
@@ -36,6 +37,8 @@ class BookmarkChannel : Fragment() {
             //data = dBhelper.getALLRecord()
             list.adapter = bookmarkAdapter
             //bookmarkAdapter.notifyDataSetChanged()
+            ids = dBhelper.getALLChannleid()
+            Log.e("ids", ids.toString())
             val simpleCallBack = object : ItemTouchHelper.SimpleCallback( //스와이프 사용을 위함
                 ItemTouchHelper.DOWN or ItemTouchHelper.UP, ItemTouchHelper.RIGHT
             ) {

@@ -6,8 +6,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import android.view.View
+import android.view.View.VISIBLE
 import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.core.view.isVisible
+import com.fancertification.www.databinding.BookmarkAdapterItemBinding
 import com.fancertification.www.databinding.ExampleAdapterItemBinding
+import com.google.api.Distribution
 import kotlin.collections.ArrayList
 
 
@@ -23,17 +28,17 @@ class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
         fun OnItemClick(holder: RecyclerView.ViewHolder, view: View, data: SearchData, position: Int)
     }
 
-    inner class BookMarkViewHolder(binding: ExampleAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class BookMarkViewHolder(binding: BookmarkAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         val title: TextView = binding.titleTv //binding TextView in item_health_info.xml
         val detail: TextView = binding.subscriptionTv // binding TextView in item_health_info.xml
         val image: ImageView = binding.titleImage
-
+        val inner: TextView = binding.innerText
+        val toggleButton:ImageView = binding.bookmarkBtn
+        val layoutExpand: LinearLayout = binding.layoutExpand
+        val mainitem: LinearLayout = binding.mainItem
         init {
-            binding.bookmarkBtn.setOnClickListener { //click event for suggestion btton
-                itemOnClickListener?.OnItemClick(this, it,
-                    mList?.get(adapterPosition)!!, adapterPosition)
-            }
+
         }
     }
 
@@ -61,7 +66,7 @@ class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
 
         //item_utube xml파일을 객체화 시킨다.
 
-        return BookMarkViewHolder(ExampleAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
+        return BookMarkViewHolder(BookmarkAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
     }
 
     override fun onBindViewHolder(viewholder: BookMarkViewHolder, position: Int) {
@@ -78,8 +83,27 @@ class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
             .load(imageUrl).circleCrop()
             .into(viewholder.image)
 
+        viewholder.inner.setText(mList!![position].title)
+
+        viewholder.toggleButton.setOnClickListener { //click event for suggestion btton
+            val show = toggleLayout(!mList!![position].is_scraped, it, viewholder.layoutExpand)
+            mList!![position].is_scraped = show
+        }
+
 
     }
+
+    fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
+        // 토글 레이아웃을 위한 애니메이션
+        toggleAnimation.toggleArrow(view, isExpanded)
+        if (isExpanded) {
+            toggleAnimation.expand(layoutExpand)
+        } else {
+            toggleAnimation.collapse(layoutExpand)
+        }
+        return isExpanded
+    }
+
 
     override fun getItemCount(): Int {
         return if (null != mList) mList!!.size else 0
