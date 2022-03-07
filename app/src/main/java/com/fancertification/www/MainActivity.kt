@@ -34,11 +34,11 @@ val iconArray = arrayListOf<Int>(
     }
     private fun init() {
         binding.viewPager.adapter = FragmentHandler(this)
+        binding.viewPager.isUserInputEnabled = false
         initIconColor()
         TabLayoutMediator(binding.myTabIconview, binding.viewPager) { tab, position ->
             tab.setIcon(iconArray[position])
         }.attach() //꼭 attach해야함.
-
     }
     fun initIconColor() {
         binding.myTabIconview.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

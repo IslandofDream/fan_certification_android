@@ -7,13 +7,11 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".MainActivity">
-
     <EditText
         android:layout_marginTop="16dp"
         android:id="@+id/search_edit"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-
         android:background="@drawable/border"
         android:singleLine="true"
         android:imeOptions="actionDone"
@@ -25,7 +23,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:background="@color/white"
-
+        android:overScrollMode="never"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/example_adapter_item"/>

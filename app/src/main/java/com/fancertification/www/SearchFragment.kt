@@ -20,11 +20,18 @@ class SearchFragment : Fragment() {
     var sdata: ArrayList<SearchData> = ArrayList<SearchData>()
     lateinit var utubeAdapter: UtubeAdapter
     lateinit var dBhelper: DBhelper
+
+
+    override fun onPause() {
+        super.onPause()
+        sdata.clear()
+        binding.searchEdit.text.clear()
+        utubeAdapter.notifyDataSetChanged()
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         dBhelper = DBhelper(context)
         binding = SearchFragmentBinding.inflate(inflater, container, false)
         binding.searchEdit.setImeActionLabel("Done", KeyEvent.KEYCODE_ENTER)
@@ -56,7 +63,6 @@ class SearchFragment : Fragment() {
 
                 ChannelTask(data).execute()
             }
-
         }
         binding.recyclerView.adapter = utubeAdapter
 
@@ -66,9 +72,6 @@ class SearchFragment : Fragment() {
         AsyncTask<Void?, Void?, Void?>() {
         val myData = myData
         var myList: MutableList<Int>? = null
-        override fun onPreExecute() {
-            super.onPreExecute()
-        }
 
         override fun doInBackground(vararg params: Void?): Void? {
             try {
@@ -76,7 +79,6 @@ class SearchFragment : Fragment() {
                 UtubeRepository.getChannel(myData.videoId)?.let { myList=it }
                 dBhelper.insertchannel(ChannelData(myData, myList?.get(0) ?: 0, myList?.get(1) ?: 0, myList?.get(2) ?: 0))
 
-                Log.d("map", myList.toString())
             } catch (e: JSONException) {
                 // TODO Auto-generated catch block
                 Log.d("myJsonError", e.toString())
@@ -106,9 +108,9 @@ class SearchFragment : Fragment() {
                 UtubeRepository.getUtube(binding.searchEdit.text.toString())?.let {
                     sdata.clear()
                     sdata.addAll(it)
+                    onScrapedCheck(dBhelper.getALLRecord())
                 }
 
-                Log.d("result!!!", sdata.toString())
             } catch (e: JSONException) {
                 // TODO Auto-generated catch block
                 Log.d("myJsonError", e.toString())
@@ -121,11 +123,16 @@ class SearchFragment : Fragment() {
         }
 
         override fun onPostExecute(result: Void?) {
-
-
             utubeAdapter.notifyDataSetChanged()
         }
 
     }
-
+    fun onScrapedCheck(myData:ArrayList<SearchData>?) {
+        sdata.forEach {
+            val ramda = {d:SearchData -> d.videoId == it.videoId}
+            if(myData?.any(ramda) == true){
+                it.is_scraped= true
+            }
+        }
+    }
 }
