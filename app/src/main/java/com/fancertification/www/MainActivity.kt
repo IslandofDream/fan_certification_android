@@ -38,6 +38,7 @@ val iconArray = arrayListOf<Int>(
         TabLayoutMediator(binding.myTabIconview, binding.viewPager) { tab, position ->
             tab.setIcon(iconArray[position])
         }.attach() //꼭 attach해야함.
+
     }
     fun initIconColor() {
         binding.myTabIconview.setOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

@@ -97,7 +97,7 @@ class BookmarkChannel : Fragment() {
 //            position.add(position.size + 1)
 //            Log.e("position", position.last().toString())
 //            Log.e("list", position.toString())
-            val smapleData = SearchData(
+            val sampleData = SearchData(
                 binding.insertChannel.text.toString(),
                 binding.insertChannel.text.toString(),
                 "https://picsum.photos/id/237/200/300",
@@ -105,7 +105,7 @@ class BookmarkChannel : Fragment() {
                 true
             )
 
-            val flag = dBhelper.insertchannel(smapleData)
+            val flag = dBhelper.insertchannel(ChannelData(sampleData,0,0,0))
             if (flag) {
                 Toast.makeText(it.context, "삽입 성공", Toast.LENGTH_SHORT).show()
             } else {

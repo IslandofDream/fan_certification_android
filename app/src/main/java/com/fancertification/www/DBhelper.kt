@@ -124,12 +124,13 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
             }
     }
 
-    fun insertchannel(data: SearchData): Boolean { // 채널 삽입
+    fun insertchannel(data: ChannelData): Boolean { // 채널 삽입
         val values = ContentValues()
-        values.put(CHANNELID, data.videoId)
-        values.put(CHANNELTITLE, data.title)
-        values.put(THUMBNAIL, data.imageUrl)
-        values.put(DESCRIPTION, data.description)
+        values.put(CHANNELID, data.data.videoId)
+        values.put(CHANNELTITLE, data.data.title)
+        values.put(THUMBNAIL, data.data.imageUrl)
+        values.put(DESCRIPTION, data.data.description)
+        Log.d("ChannelData", data.toString())
         //values.put(POSITION, data.position)
         //values.put(CHECKED, data.checked)
         val db = writableDatabase

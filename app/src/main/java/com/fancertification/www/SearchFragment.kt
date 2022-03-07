@@ -52,14 +52,47 @@ class SearchFragment : Fragment() {
                 position: Int
             ) {
                 sdata[position].is_scraped = !sdata[position].is_scraped
-                dBhelper.insertchannel(data)
                 utubeAdapter.notifyDataSetChanged()
+
+                ChannelTask(data).execute()
             }
 
         }
         binding.recyclerView.adapter = utubeAdapter
 
         return binding.root
+    }
+    inner class ChannelTask(myData:SearchData) :
+        AsyncTask<Void?, Void?, Void?>() {
+        val myData = myData
+        var myList: MutableList<Int>? = null
+        override fun onPreExecute() {
+            super.onPreExecute()
+        }
+
+        override fun doInBackground(vararg params: Void?): Void? {
+            try {
+                //paringJsonData(getUtube())
+                UtubeRepository.getChannel(myData.videoId)?.let { myList=it }
+                dBhelper.insertchannel(ChannelData(myData, myList?.get(0) ?: 0, myList?.get(1) ?: 0, myList?.get(2) ?: 0))
+
+                Log.d("map", myList.toString())
+            } catch (e: JSONException) {
+                // TODO Auto-generated catch block
+                Log.d("myJsonError", e.toString())
+                e.printStackTrace()
+            } catch (e: IOException) {
+                Log.d("myIOError", e.toString())
+                e.printStackTrace()
+            }
+            return null
+        }
+
+        override fun onPostExecute(result: Void?) {
+            if(myList.isNullOrEmpty()){
+            }
+        }
+
     }
     inner class searchTask :
         AsyncTask<Void?, Void?, Void?>() {
@@ -74,6 +107,7 @@ class SearchFragment : Fragment() {
                     sdata.clear()
                     sdata.addAll(it)
                 }
+
                 Log.d("result!!!", sdata.toString())
             } catch (e: JSONException) {
                 // TODO Auto-generated catch block
