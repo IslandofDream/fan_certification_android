@@ -17,9 +17,40 @@ object UtubeRepository {
     val sdata: ArrayList<SearchData> = ArrayList<SearchData>()
 
 
+    fun getChannel(id: String): MutableList<Int>? {
+
+        val originUrl = ("https://www.googleapis.com/youtube/v3/channels?"
+                + "part=id,statistics,brandingSettings" + "&id=$id"
+                + "&key=" + serverKey)
+        val myUrl = String.format(originUrl)
+        val url = URL(myUrl)
+        val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
+        connection.setRequestMethod("GET")
+        connection.setReadTimeout(10000)
+        connection.setConnectTimeout(15000)
+        connection.connect()
+        var line: String?
+        var result = ""
+        val inputStream: InputStream = connection.getInputStream()
+        val reader = BufferedReader(InputStreamReader(inputStream))
+        val response = StringBuffer()
+        while (reader.readLine().also { line = it } != null) {
+            response.append(line)
+        }
+        result = response.toString()
+        var jsonObject = JSONObject()
+        try {
+            jsonObject = JSONObject(result)
+        } catch (e: JSONException) {
+            // TODO Auto-generated catch block
+            e.printStackTrace()
+        }
+        Log.d("result!", jsonObject.toString())
+        return parsingJsonChannel(jsonObject)
+    }
 
     @Throws(IOException::class)
-    fun getUtube(keyword:String):ArrayList<SearchData>?{
+    fun getUtube(keyword: String): ArrayList<SearchData>? {
         Log.d("keyword", keyword)
         val originUrl = ("https://www.googleapis.com/youtube/v3/search?"
                 + "part=snippet&q=" + keyword + "&type=channel"
@@ -48,14 +79,38 @@ object UtubeRepository {
             e.printStackTrace()
         }
         Log.d("response", jsonObject.toString())
-        return parsingJsonData(jsonObject)
+        return parsingJsonSearch(jsonObject)
     }
 
+    private fun parsingJsonChannel(jsonObject: JSONObject?): MutableList<Int>? {
+
+        val contacts = jsonObject?.getJSONArray("items")
+            val c = contacts!!.getJSONObject(0)
+
+
+            //val changString: String = stringToHtmlSign(title)
+            val viewCount = c.getJSONObject("statistics").getInt("viewCount")
+            val subscriberCount = c.getJSONObject("statistics").getInt("subscriberCount")
+            val videoCount = c.getJSONObject("statistics").getInt("videoCount")
+            val myList = mutableListOf<Int>(
+                viewCount,
+                 subscriberCount,
+                 videoCount
+            )
+            //val brandingSettings = c.getJSONObject("brandingSettings").getJSONObject("image")
+            Log.d("viewCount", viewCount.toString())
+            Log.d("subscriberCount", subscriberCount.toString())
+            Log.d("videoCount", videoCount.toString())
+            //brandingSettings?.toString()?.let { Log.d("brandingSettings", it) }
+            //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
+
+        return myList;
+    }
 
     @Throws(JSONException::class)
-    private fun parsingJsonData(jsonObject: JSONObject?):ArrayList<SearchData>? {
+    private fun parsingJsonSearch(jsonObject: JSONObject?): ArrayList<SearchData>? {
         //재검색할때 데이터들이 쌓이는걸 방지하기 위해 리스트를 초기화 시켜준다.
-         sdata.clear();
+        sdata.clear();
         var vodid = ""
         val contacts = jsonObject?.getJSONArray("items")
         for (i in 0 until contacts!!.length()) {
@@ -80,7 +135,7 @@ object UtubeRepository {
             //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
             sdata.add(SearchData(vodid, changString, imgUrl, description, false))
         }
-    return sdata
+        return sdata
     }
 
 
