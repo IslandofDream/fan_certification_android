@@ -11,16 +11,16 @@ import com.fancertification.www.databinding.ExampleAdapterItemBinding
 import kotlin.collections.ArrayList
 
 
-class BookmarkAdapter(var context: Context, list: ArrayList<ExampleData>?) :
+class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
     RecyclerView.Adapter<BookmarkAdapter.BookMarkViewHolder>() {
 
 
-    var mList: ArrayList<ExampleData>?
+    var mList: ArrayList<SearchData>?
 
     var itemOnClickListener: OnItemClickListener? = null
 
     interface OnItemClickListener {
-        fun OnItemClick(holder: RecyclerView.ViewHolder, view: View, data: ExampleData, position: Int)
+        fun OnItemClick(holder: RecyclerView.ViewHolder, view: View, data: SearchData, position: Int)
     }
 
     inner class BookMarkViewHolder(binding: ExampleAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -66,7 +66,7 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ExampleData>?) :
 
     override fun onBindViewHolder(viewholder: BookMarkViewHolder, position: Int) {
         //영상제목 세팅
-        viewholder.title.setText(mList!![position].channeltitle)
+        viewholder.title.setText(mList!![position].title)
         //날짜 세팅
         viewholder.detail.setText(mList!![position].description)
 

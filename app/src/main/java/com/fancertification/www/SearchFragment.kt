@@ -19,10 +19,13 @@ class SearchFragment : Fragment() {
     lateinit var binding: SearchFragmentBinding
     var sdata: ArrayList<SearchData> = ArrayList<SearchData>()
     lateinit var utubeAdapter: UtubeAdapter
+    lateinit var dBhelper: DBhelper
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        dBhelper = DBhelper(context)
         binding = SearchFragmentBinding.inflate(inflater, container, false)
         binding.searchEdit.setImeActionLabel("Done", KeyEvent.KEYCODE_ENTER)
 
@@ -49,7 +52,7 @@ class SearchFragment : Fragment() {
                 position: Int
             ) {
                 sdata[position].is_scraped = !sdata[position].is_scraped
-
+                dBhelper.insertchannel(data)
                 utubeAdapter.notifyDataSetChanged()
             }
 

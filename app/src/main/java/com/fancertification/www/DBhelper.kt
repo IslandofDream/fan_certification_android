@@ -31,29 +31,27 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
     }
 
 
-    fun getALLRecord(): ArrayList<ExampleData> { // 모든 데이터 반환 북마크 프래그먼트에 출력하기 위함
-        var data: ArrayList<ExampleData> = ArrayList()
-        val strsql = "select * from $TABLE_NAME order by LOWER($POSITION) ASC;"
+    fun getALLRecord(): ArrayList<SearchData> { // 모든 데이터 반환 북마크 프래그먼트에 출력하기 위함
+        var data: ArrayList<SearchData> = ArrayList()
+        val strsql = "select * from $TABLE_NAME;"
         val db = readableDatabase
         val cursor = db.rawQuery(strsql, null)
         cursor.moveToFirst()
         do {
             if(cursor.count != 0){
                 data.add(
-                    ExampleData(
+                    SearchData(
                         cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2),
-                        cursor.getString(3),
-                        cursor.getInt(4),
-                        cursor.getInt(5)
+                        cursor.getString(3)
                     )
                 )
             }
             else{
                 data.add(
-                    ExampleData(
-                        "","원하는 채널을 저장해보세요.","","",1,0
+                    SearchData(
+                        "","원하는 채널을 저장해보세요.","","",
                     )
                 )
             }
@@ -103,14 +101,14 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
             }
     }
 
-    fun insertchannel(data: ExampleData): Boolean { // 채널 삽입
+    fun insertchannel(data: SearchData): Boolean { // 채널 삽입
         val values = ContentValues()
-        values.put(CHANNELID, data.channelId)
-        values.put(CHANNELTITLE, data.channeltitle)
+        values.put(CHANNELID, data.videoId)
+        values.put(CHANNELTITLE, data.title)
         values.put(THUMBNAIL, data.imageUrl)
         values.put(DESCRIPTION, data.description)
-        values.put(POSITION, data.position)
-        values.put(CHECKED, data.checked)
+        //values.put(POSITION, data.position)
+        //values.put(CHECKED, data.checked)
         val db = writableDatabase
         val flag = db.insert(TABLE_NAME, null, values) > 0
         db.close()
@@ -152,9 +150,10 @@ class DBhelper(val context: Context?): SQLiteOpenHelper(context, DB_NAME, null, 
                 "$CHANNELID TEXT PRIMARY KEY, " +
                 "$CHANNELTITLE TEXT, " +
                 "$THUMBNAIL TEXT, " +
-                "$DESCRIPTION TEXT, " +
-                "$POSITION INTEGER, " +
-                "$CHECKED INTEGER);"
+                "$DESCRIPTION TEXT);"
+
+                /*"$POSITION INTEGER, " +
+                "$CHECKED INTEGER);"*/
 
         db!!.execSQL(create_table)
         // 테이블이 존재하지 않으면 생성 할거다
