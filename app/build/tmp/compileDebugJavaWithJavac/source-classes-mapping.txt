@@ -1,25 +1,27 @@
-com/fancertification/www/databinding/SearchFragmentBinding.java
- com.fancertification.www.databinding.SearchFragmentBinding
-com/fancertification/www/databinding/FragmentBookmarkBinding.java
- com.fancertification.www.databinding.FragmentBookmarkBinding
 com/fancertification/www/BR.java
  com.fancertification.www.BR
-com/fancertification/www/databinding/ExampleAdapterItemBinding.java
- com.fancertification.www.databinding.ExampleAdapterItemBinding
 com/fancertification/www/DataBinderMapperImpl.java
  com.fancertification.www.DataBinderMapperImpl
  com.fancertification.www.DataBinderMapperImpl$InnerBrLookup
  com.fancertification.www.DataBinderMapperImpl$InnerLayoutIdLookup
 androidx/databinding/DataBinderMapperImpl.java
  androidx.databinding.DataBinderMapperImpl
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/fancertification/www/databinding/SearchFragmentBinding.java
+ com.fancertification.www.databinding.SearchFragmentBinding
+com/fancertification/www/databinding/FragmentBookmarkBinding.java
+ com.fancertification.www.databinding.FragmentBookmarkBinding
+com/fancertification/www/databinding/ExampleAdapterItemBinding.java
+ com.fancertification.www.databinding.ExampleAdapterItemBinding
 com/fancertification/www/databinding/ActivityLoginBinding.java
  com.fancertification.www.databinding.ActivityLoginBinding
 com/fancertification/www/databinding/FragmentSettingBinding.java
  com.fancertification.www.databinding.FragmentSettingBinding
+com/fancertification/www/databinding/TestBinding.java
+ com.fancertification.www.databinding.TestBinding
 com/fancertification/www/DataBindingTriggerClass.java
  com.fancertification.www.DataBindingTriggerClass
-androidx/databinding/library/baseAdapters/BR.java
- androidx.databinding.library.baseAdapters.BR
 androidx/databinding/DataBindingComponent.java
  androidx.databinding.DataBindingComponent
 com/fancertification/www/BuildConfig.java

@@ -1,26 +1,30 @@
 [
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/activity_main.xml"
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_setting.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/fragment_setting.xml"
     },
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_setting.xml",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/fragment_setting.xml"
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/example_adapter_item.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/example_adapter_item.xml"
     },
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_bookmark.xml",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/fragment_bookmark.xml"
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/search_fragment.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/search_fragment.xml"
     },
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_login.xml",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/activity_login.xml"
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/test.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/test.xml"
     },
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/search_fragment.xml",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/search_fragment.xml"
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_login.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/activity_login.xml"
     },
     {
-        "merged": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/example_adapter_item.xml",
-        "source": "/Users/jerry/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/example_adapter_item.xml"
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_bookmark.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/fragment_bookmark.xml"
     }
 ]
