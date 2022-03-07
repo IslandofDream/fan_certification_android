@@ -12,9 +12,9 @@ import java.net.URL
 
 object UtubeRepository {
 
-    val serverKey = "AIzaSyAMK7BBcUlJ81DjvkGL3mmPAZCcJeSjzRo"
+    private const val serverKey = "AIzaSyAMK7BBcUlJ81DjvkGL3mmPAZCcJeSjzRo"
 
-    val sdata: ArrayList<SearchData> = ArrayList<SearchData>()
+    private val searchData: ArrayList<SearchData> = ArrayList()
 
 
     fun getChannel(id: String): MutableList<Int>? {
@@ -25,9 +25,9 @@ object UtubeRepository {
         val myUrl = String.format(originUrl)
         val url = URL(myUrl)
         val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-        connection.setRequestMethod("GET")
-        connection.setReadTimeout(10000)
-        connection.setConnectTimeout(15000)
+        connection.requestMethod = "GET"
+        connection.readTimeout = 10000
+        connection.connectTimeout = 15000
         connection.connect()
         var line: String?
         var result = ""
@@ -58,9 +58,9 @@ object UtubeRepository {
         val myUrl = String.format(originUrl)
         val url = URL(myUrl)
         val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
-        connection.setRequestMethod("GET")
-        connection.setReadTimeout(10000)
-        connection.setConnectTimeout(15000)
+        connection.requestMethod = "GET"
+        connection.readTimeout = 10000
+        connection.connectTimeout = 15000
         connection.connect()
         var line: String?
         var result = ""
@@ -85,32 +85,32 @@ object UtubeRepository {
     private fun parsingJsonChannel(jsonObject: JSONObject?): MutableList<Int>? {
 
         val contacts = jsonObject?.getJSONArray("items")
-            val c = contacts!!.getJSONObject(0)
+        val c = contacts!!.getJSONObject(0)
 
 
-            //val changString: String = stringToHtmlSign(title)
-            val viewCount = c.getJSONObject("statistics").getInt("viewCount")
-            val subscriberCount = c.getJSONObject("statistics").getInt("subscriberCount")
-            val videoCount = c.getJSONObject("statistics").getInt("videoCount")
-            val myList = mutableListOf<Int>(
-                viewCount,
-                 subscriberCount,
-                 videoCount
-            )
-            //val brandingSettings = c.getJSONObject("brandingSettings").getJSONObject("image")
-            Log.d("viewCount", viewCount.toString())
-            Log.d("subscriberCount", subscriberCount.toString())
-            Log.d("videoCount", videoCount.toString())
-            //brandingSettings?.toString()?.let { Log.d("brandingSettings", it) }
-            //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
+        //val changString: String = stringToHtmlSign(title)
+        val viewCount = c.getJSONObject("statistics").getInt("viewCount")
+        val subscriberCount = c.getJSONObject("statistics").getInt("subscriberCount")
+        val videoCount = c.getJSONObject("statistics").getInt("videoCount")
+        val myList = mutableListOf(
+            viewCount,
+            subscriberCount,
+            videoCount
+        )
+        //val brandingSettings = c.getJSONObject("brandingSettings").getJSONObject("image")
+        Log.d("viewCount", viewCount.toString())
+        Log.d("subscriberCount", subscriberCount.toString())
+        Log.d("videoCount", videoCount.toString())
+        //brandingSettings?.toString()?.let { Log.d("brandingSettings", it) }
+        //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
 
-        return myList;
+        return myList
     }
 
     @Throws(JSONException::class)
     private fun parsingJsonSearch(jsonObject: JSONObject?): ArrayList<SearchData>? {
         //재검색할때 데이터들이 쌓이는걸 방지하기 위해 리스트를 초기화 시켜준다.
-        sdata.clear();
+        searchData.clear()
         var vodid = ""
         val contacts = jsonObject?.getJSONArray("items")
         for (i in 0 until contacts!!.length()) {
@@ -133,9 +133,9 @@ object UtubeRepository {
                 .getJSONObject("default").getString("url") //썸네일 이미지 URL값
 
             //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
-            sdata.add(SearchData(vodid, changString, imgUrl, description, false))
+            searchData.add(SearchData(vodid, changString, imgUrl, description, false))
         }
-        return sdata
+        return searchData
     }
 
 
@@ -144,7 +144,7 @@ object UtubeRepository {
             .replace("[<]", "<")
             .replace("[>]", ">")
             .replace("\"", "\'")
-            .replace("'", "'");
+            .replace("'", "'")
     }
 
 }
