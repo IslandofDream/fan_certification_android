@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/example_adapter_item.xml" value="0.2028985507246377" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/fan_certification_android/app/src/main/res/layout/fragment_bookmark.xml" value="0.2046875" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/drawable/bookmark_border.xml" value="0.2165" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/drawable/bookmark_viewborder.xml" value="0.2165" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/drawable/border.xml" value="0.2165" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/drawable/ic_carret_up.xml" value="0.2165" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/layout/activity_main.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/layout/bookmark_adapter_item.xml" value="0.1" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/layout/example_adapter_item.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/layout/fragment_bookmark.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/layout/fragment_setting.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/layout/search_fragment.xml" value="0.15520833333333334" />
+        <entry key="..\:/Users/ku17 kimjunwoo/Desktop/fan_certification_android/app/src/main/res/layout/test.xml" value="0.15520833333333334" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1859375" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1859375" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.11041666666666666" />

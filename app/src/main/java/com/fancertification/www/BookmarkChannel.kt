@@ -19,10 +19,21 @@ class BookmarkChannel : Fragment() {
     lateinit var binding: FragmentBookmarkBinding
     lateinit var dBhelper: DBhelper
     lateinit var bookmarkAdapter: BookmarkAdapter
-    lateinit var data: ArrayList<SearchData>
-    lateinit var ids: ArrayList<String>
+    lateinit var data: ArrayList<ChannelData>
+    lateinit var dates: ArrayList<String>
 //    lateinit var position: ArrayList<Int> // 화면상의 포지션
 
+    override fun onResume() {
+        super.onResume()
+        binding.apply {
+            dBhelper = DBhelper(context)
+            data = dBhelper.getALLRecord()
+            dates = dBhelper.getAlldate()
+            bookmarkAdapter = BookmarkAdapter(requireContext(), data, dates)
+            list.adapter = bookmarkAdapter
+        }
+
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,64 +43,62 @@ class BookmarkChannel : Fragment() {
             list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             dBhelper = DBhelper(context)
             data = dBhelper.getALLRecord()
-            //position = dBhelper.getPosition()
-            bookmarkAdapter = BookmarkAdapter(requireContext(), data)
-            //data = dBhelper.getALLRecord()
+            dates = dBhelper.getAlldate()
+            bookmarkAdapter = BookmarkAdapter(requireContext(), data, dates)
             list.adapter = bookmarkAdapter
-            //bookmarkAdapter.notifyDataSetChanged()
-            ids = dBhelper.getALLChannleid()
-            Log.e("ids", ids.toString())
-            val simpleCallBack = object : ItemTouchHelper.SimpleCallback( //스와이프 사용을 위함
-                ItemTouchHelper.DOWN or ItemTouchHelper.UP, ItemTouchHelper.RIGHT
-            ) {
-                override fun onMove(
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    target: RecyclerView.ViewHolder
-                ): Boolean {
-                    val curpos: Int = viewHolder.adapterPosition
-                    val targetpos: Int = target.adapterPosition
-                    bookmarkAdapter.moveItem(curpos, targetpos)
-                    reorderposition(curpos, targetpos)
-                    Log.e("order", data.toString())
-                    return true
-                }
 
-                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                    val builder = AlertDialog.Builder(context) // 채널 삭제전 dialog로 확인 절차
-                    builder.setTitle("채널 삭제")
-                    builder.setMessage("채널을 삭제하시겠습니까?")
-                    builder.setPositiveButton("예") { dialog, id ->
-                        dBhelper.deleteChannel(data[viewHolder.adapterPosition].title)
-
-                        //bookmarkAdapter.removeItem(viewHolder.adapterPosition) // 리싸이클러뷰 갱신
-                        data = dBhelper.getALLRecord() // 로컬 변수 갱신
-               //         position = dBhelper.getPosition() //포지션 갱신
-                        bookmarkAdapter = BookmarkAdapter(
-                            requireContext(),
-                            data
-                        ) // 스와이프 사용으로 arraylist가 변경되었으므로 목록을 복구 시켜놔야 한다.
-                        //TODO 포지션 정보 갱신 필요
-                        binding.list.adapter = bookmarkAdapter
-                        Toast.makeText(context, "채널 삭제 성공", Toast.LENGTH_SHORT).show()
-                    }
-                    builder.setNegativeButton("아니오") { dialog, id ->
-                        dialog.dismiss()
-                        Toast.makeText(context, "채널 삭제가 취소 되었습니다.", Toast.LENGTH_SHORT).show()
-                        data = dBhelper.getALLRecord() // 로컬 변수 갱신
-                        //position = dBhelper.getPosition() //포지션 갱신
-                        bookmarkAdapter = BookmarkAdapter(
-                            requireContext(),
-                            data
-                        ) // 스와이프 사용 취소가 되었으므로 목록을 복구 시켜놔야 한다.
-                        binding.list.adapter = bookmarkAdapter
-                        //TODO 포지션 정보 갱신 필요
-                    }
-                    builder.create().show()
-                }
-            }
-            val itemTouchHelper = ItemTouchHelper(simpleCallBack)
-            itemTouchHelper.attachToRecyclerView(list)
+            Log.e("ids", dates.toString())
+//            val simpleCallBack = object : ItemTouchHelper.SimpleCallback( //스와이프 사용을 위함
+//                ItemTouchHelper.DOWN or ItemTouchHelper.UP, ItemTouchHelper.RIGHT
+//            ) {
+//                override fun onMove(
+//                    recyclerView: RecyclerView,
+//                    viewHolder: RecyclerView.ViewHolder,
+//                    target: RecyclerView.ViewHolder
+//                ): Boolean {
+//                    val curpos: Int = viewHolder.adapterPosition
+//                    val targetpos: Int = target.adapterPosition
+//                    bookmarkAdapter.moveItem(curpos, targetpos)
+//                    reorderposition(curpos, targetpos)
+//                    Log.e("order", data.toString())
+//                    return true
+//                }
+//
+//                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+//                    val builder = AlertDialog.Builder(context) // 채널 삭제전 dialog로 확인 절차
+//                    builder.setTitle("채널 삭제")
+//                    builder.setMessage("채널을 삭제하시겠습니까?")
+//                    builder.setPositiveButton("예") { dialog, id ->
+//                        dBhelper.deleteChannel(data[viewHolder.adapterPosition].data.title)
+//
+//                        //bookmarkAdapter.removeItem(viewHolder.adapterPosition) // 리싸이클러뷰 갱신
+//                        data = dBhelper.getALLRecord() // 로컬 변수 갱신
+//               //         position = dBhelper.getPosition() //포지션 갱신
+//                        bookmarkAdapter = BookmarkAdapter(
+//                            requireContext(),
+//                            data
+//                        ) // 스와이프 사용으로 arraylist가 변경되었으므로 목록을 복구 시켜놔야 한다.
+//                        //TODO 포지션 정보 갱신 필요
+//                        binding.list.adapter = bookmarkAdapter
+//                        Toast.makeText(context, "채널 삭제 성공", Toast.LENGTH_SHORT).show()
+//                    }
+//                    builder.setNegativeButton("아니오") { dialog, id ->
+//                        dialog.dismiss()
+//                        Toast.makeText(context, "채널 삭제가 취소 되었습니다.", Toast.LENGTH_SHORT).show()
+//                        data = dBhelper.getALLRecord() // 로컬 변수 갱신
+//                        //position = dBhelper.getPosition() //포지션 갱신
+//                        bookmarkAdapter = BookmarkAdapter(
+//                            requireContext(),
+//                            data
+//                        ) // 스와이프 사용 취소가 되었으므로 목록을 복구 시켜놔야 한다.
+//                        binding.list.adapter = bookmarkAdapter
+//                        //TODO 포지션 정보 갱신 필요
+//                    }
+//                    builder.create().show()
+//                }
+//            }
+//            val itemTouchHelper = ItemTouchHelper(simpleCallBack)
+//            itemTouchHelper.attachToRecyclerView(list)
         }
 
         binding.insert.setOnClickListener {
@@ -119,8 +128,9 @@ class BookmarkChannel : Fragment() {
             }
 */
             data = dBhelper.getALLRecord() // 로컬 변수 갱신
+            dates = dBhelper.getAlldate()
 //            position = dBhelper.getPosition() //포지션 갱신
-            bookmarkAdapter = BookmarkAdapter(requireContext(), data)
+            bookmarkAdapter = BookmarkAdapter(requireContext(), data, dates)
             binding.list.adapter = bookmarkAdapter
             binding.insertChannel.text.clear()
             //TODO 포지션 정보 갱신 필요

@@ -66,17 +66,17 @@ val iconArray = arrayListOf<Int>(
         if (dbfile.parentFile.exists()) { // 존재한다면 디렉토리 만들어준다.
             dbfile.parentFile.mkdir()
         }
-        if(!dbfile.exists()){ // 존재하지 않으면 새롭게 파일을 만들어준다.
-            val file = resources.openRawResource(R.raw.mydatabase)
-            val fileSize = file.available()
-            val buffer = ByteArray(fileSize)
-            file.read(buffer)
-            file.close()
-            dbfile.createNewFile()
-            val output = FileOutputStream(dbfile)
-            output.write(buffer)
-            output.close()
-        }
+//        if(!dbfile.exists()){ // 존재하지 않으면 새롭게 파일을 만들어준다.
+//            val file = resources.openRawResource(R.raw.mydatabase)
+//            val fileSize = file.available()
+//            val buffer = ByteArray(fileSize)
+//            file.read(buffer)
+//            file.close()
+//            dbfile.createNewFile()
+//            val output = FileOutputStream(dbfile)
+//            output.write(buffer)
+//            output.close()
+//        }
 
     }
 

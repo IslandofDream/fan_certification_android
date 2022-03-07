@@ -1,4 +1,5 @@
 package com.fancertification.www
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -16,11 +17,12 @@ import com.google.api.Distribution
 import kotlin.collections.ArrayList
 
 
-class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
+class BookmarkAdapter(var context: Context, list: ArrayList<ChannelData>?, date: ArrayList<String>) :
     RecyclerView.Adapter<BookmarkAdapter.BookMarkViewHolder>() {
 
 
-    var mList: ArrayList<SearchData>?
+    var mList: ArrayList<ChannelData>?
+    var dates: ArrayList<String>
 
     var itemOnClickListener: OnItemClickListener? = null
 
@@ -33,13 +35,11 @@ class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
         val title: TextView = binding.titleTv //binding TextView in item_health_info.xml
         val detail: TextView = binding.subscriptionTv // binding TextView in item_health_info.xml
         val image: ImageView = binding.titleImage
-        val inner: TextView = binding.innerText
+        val viewcount: TextView = binding.viewcountText
+        val subdate: TextView = binding.subdateText
         val toggleButton:ImageView = binding.bookmarkBtn
         val layoutExpand: LinearLayout = binding.layoutExpand
-        val mainitem: LinearLayout = binding.mainItem
-        init {
 
-        }
     }
 
     fun removeItem(pos:Int){ // 스와이프에 쓰일 아이
@@ -69,25 +69,29 @@ class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
         return BookMarkViewHolder(BookmarkAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewholder: BookMarkViewHolder, position: Int) {
         //영상제목 세팅
-        viewholder.title.setText(mList!![position].title)
+        viewholder.title.setText(mList!![position].data.title)
         //날짜 세팅
-        viewholder.detail.setText(mList!![position].description)
+        viewholder.detail.setText(
+            "총 동영상 개수 : "+ mList!![position].videoCount.toString() + " · " +
+                    ("구독자 : "+ mList!![position].subscriberCount.toString()) )
 
 
         //이미지를 넣어주기 위해 이미지url을 가져온다.
-        val imageUrl: String = mList!![position].imageUrl
+        val imageUrl: String = mList!![position].data.imageUrl
         //영상 썸네일 세팅
         Glide.with(viewholder.image)
             .load(imageUrl).circleCrop()
             .into(viewholder.image)
 
-        viewholder.inner.setText(mList!![position].title)
+        viewholder.subdate.setText("처음 구독한 날! \n"+ dates!![position])
+        viewholder.viewcount.setText("총 조회수 \n "+ mList!![position].viewCount.toString() + "\n 시간")
 
         viewholder.toggleButton.setOnClickListener { //click event for suggestion btton
-            val show = toggleLayout(!mList!![position].is_scraped, it, viewholder.layoutExpand)
-            mList!![position].is_scraped = show
+            val show = toggleLayout(!mList!![position].data.is_scraped, it, viewholder.layoutExpand)
+            mList!![position].data.is_scraped = show
         }
 
 
@@ -111,6 +115,7 @@ class BookmarkAdapter(var context: Context, list: ArrayList<SearchData>?) :
 
     init {
         mList = list
+        dates = date
     }
 }
 
