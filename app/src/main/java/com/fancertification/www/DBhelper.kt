@@ -47,7 +47,7 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         cursor.moveToFirst()
         do {
             if (cursor.count != 0) {
-                Log.e("why?", data.toString())
+                Log.e("dbhepler getAllrecord", data.toString())
                 data.add(
                     ChannelData(
                         SearchData(
@@ -94,6 +94,38 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         return data
     }
 
+
+    fun updateChannel(channeldata:ChannelData): Boolean{
+//        val id = channeldata.data.videoId
+//        val title = channeldata.data.title
+//        val thumbnail = channeldata.data.imageUrl
+//        val description = channeldata.data.description
+//        val viewcount = channeldata.viewCount
+//        val sub_count = channeldata.subscriberCount
+//        val videocount = channeldata.videoCount
+
+//        val strsql = "update $TABLE_NAME set $CHANNELTITLE = $title" +
+//                "$THUMBNAIL = $thumbnail, "+
+//                "$DESCRIPTION = $description, "+
+//                "$VIEW_COUNT = $viewcount, "+
+//                "$SUB_COUNT = $sub_count, "+
+//                "$VIDEO_COUNT = $videocount "+
+//                "where $CHANNELID= '$id';"
+        val db = writableDatabase  //변경시킬꺼니까
+        //val cursor =db.rawQuery(strsql,null)
+        val values = ContentValues()
+        //values.put(CHANNELID, channeldata.data.videoId)
+        values.put(CHANNELTITLE, channeldata.data.title)
+        values.put(THUMBNAIL, channeldata.data.imageUrl)
+        values.put(DESCRIPTION, channeldata.data.description)
+        values.put(VIEW_COUNT, channeldata.viewCount)
+        values.put(SUB_COUNT,  channeldata.subscriberCount)
+        values.put(VIDEO_COUNT, channeldata.videoCount)
+        val flag = db.update(TABLE_NAME, values, "$CHANNELID =?", arrayOf(channeldata.data.videoId))
+        db.close()
+       return flag == 1
+//        cursor.close()
+    }
 
 //    fun getPosition(): ArrayList<Int> { // 모든 데이터 반환 북마크 프래그먼트에 출력하기 위함
 //        var position: ArrayList<Int> = ArrayList()

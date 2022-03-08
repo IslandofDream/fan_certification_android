@@ -7,14 +7,27 @@
     android:background="@color/white"
     tools:context=".BookmarkFragment">
 
-    <Button
-        android:id="@+id/insert"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/insert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="InSert" />
+
+        <Button
+            android:id="@+id/Update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update" />
+
+    </LinearLayout>
 
     <EditText
-        android:id="@+id/insertChannel"
+        android:id="@+id/editchannel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
