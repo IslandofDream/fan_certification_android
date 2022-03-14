@@ -87,7 +87,7 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ChannelData>?, date:
             .into(viewholder.image)
 
         viewholder.subdate.setText("처음 구독한 날! \n"+ dates!![position])
-        viewholder.viewcount.setText("총 조회수 \n "+ mList!![position].viewCount.toString() + "\n 시간")
+        viewholder.viewcount.setText("총 영상 조회수 \n "+ mList!![position].viewCount.toString() + "\n 시간")
 
         viewholder.toggleButton.setOnClickListener { //click event for suggestion btton
             val show = toggleLayout(!mList!![position].data.is_scraped, it, viewholder.layoutExpand)
