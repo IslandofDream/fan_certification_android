@@ -5,7 +5,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.os.Build.ID
 import android.provider.UserDictionary.Words.WORD
 import android.util.Log
 import androidx.core.database.getIntOrNull
@@ -56,7 +55,7 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
                             cursor.getString(2),
                             cursor.getString(3)
                         ),
-                        cursor.getInt(4),
+                        cursor.getLong(4),
                         cursor.getInt(5),
                         cursor.getInt(6)
                     )
@@ -64,7 +63,7 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
             } else {
                 data.add(
                     ChannelData(
-                        SearchData("", "원하는 채널을 저장해보세요.", "", ""), 0, 0, 0
+                        SearchData("null", "원하는 채널을 저장해보세요.", "", ""), 0, 0, 0
                     )
                 )
             }
