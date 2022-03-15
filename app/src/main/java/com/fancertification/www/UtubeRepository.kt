@@ -17,7 +17,7 @@ object UtubeRepository {
     private val searchData: ArrayList<SearchData> = ArrayList()
 
 
-    fun getChannel(id: String): MutableList<Int>? {
+    fun getChannel(id: String): MutableList<Long>? { //MutableList<Int>?
 
         val originUrl = ("https://www.googleapis.com/youtube/v3/channels?"
                 + "part=id,statistics,brandingSettings" + "&id=$id"
@@ -82,16 +82,16 @@ object UtubeRepository {
         return parsingJsonSearch(jsonObject)
     }
 
-    private fun parsingJsonChannel(jsonObject: JSONObject?): MutableList<Int>? {
+    private fun parsingJsonChannel(jsonObject: JSONObject?): MutableList<Long>? {
 
         val contacts = jsonObject?.getJSONArray("items")
         val c = contacts!!.getJSONObject(0)
 
 
         //val changString: String = stringToHtmlSign(title)
-        val viewCount = c.getJSONObject("statistics").getInt("viewCount")
-        val subscriberCount = c.getJSONObject("statistics").getInt("subscriberCount")
-        val videoCount = c.getJSONObject("statistics").getInt("videoCount")
+        val viewCount = c.getJSONObject("statistics").getLong("viewCount")
+        val subscriberCount = c.getJSONObject("statistics").getLong("subscriberCount")
+        val videoCount = c.getJSONObject("statistics").getLong("videoCount")
         val myList = mutableListOf(
             viewCount,
             subscriberCount,
@@ -106,6 +106,32 @@ object UtubeRepository {
 
         return myList
     }
+
+//    private fun parsingJsonChannel(jsonObject: JSONObject?): MutableList<Int>? {
+//
+//        val contacts = jsonObject?.getJSONArray("items")
+//        val c = contacts!!.getJSONObject(0)
+//
+//
+//        //val changString: String = stringToHtmlSign(title)
+//        val viewCount = c.getJSONObject("statistics").getInt("viewCount")
+//        val subscriberCount = c.getJSONObject("statistics").getInt("subscriberCount")
+//        val videoCount = c.getJSONObject("statistics").getInt("videoCount")
+//        val myList = mutableListOf(
+//            viewCount,
+//            subscriberCount,
+//            videoCount
+//        )
+//        //val brandingSettings = c.getJSONObject("brandingSettings").getJSONObject("image")
+//        Log.d("viewCount", viewCount.toString())
+//        Log.d("subscriberCount", subscriberCount.toString())
+//        Log.d("videoCount", videoCount.toString())
+//        //brandingSettings?.toString()?.let { Log.d("brandingSettings", it) }
+//        //JSON으로 파싱한 정보들을 객체화 시켜서 리스트에 담아준다.
+//
+//        return myList
+//    }
+
 
     @Throws(JSONException::class)
     private fun parsingJsonSearch(jsonObject: JSONObject?): ArrayList<SearchData>? {

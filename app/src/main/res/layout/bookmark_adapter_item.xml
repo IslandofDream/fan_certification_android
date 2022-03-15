@@ -80,6 +80,7 @@
             android:layout_weight="1"
             android:textColor="#000000"
             android:fontFamily="@font/notosans_bold"
+            android:textSize="21sp"
             android:text="구독 기록" />
 
         <LinearLayout
@@ -92,6 +93,8 @@
                 android:id="@+id/subdate_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textSize="21sp"
+                android:textColor="#FF7F7F"
                 android:layout_margin="5dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/bookmark_border"
@@ -102,6 +105,8 @@
                 android:id="@+id/viewcount_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textSize="21sp"
+                android:textColor="#B089FF"
                 android:layout_margin="5dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/bookmark_viewborder"
