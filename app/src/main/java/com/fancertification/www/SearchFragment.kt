@@ -32,7 +32,6 @@ class SearchFragment : Fragment() {
         binding.searchEdit.text.clear()
         utubeAdapter.notifyDataSetChanged()
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -75,6 +74,10 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        Log.d("restore!!","restore!!")
+    }
     @SuppressLint("NotifyDataSetChanged")
     private fun SearchTask() {
         CoroutineScope(Dispatchers.IO).launch {
