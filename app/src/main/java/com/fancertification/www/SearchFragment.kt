@@ -1,7 +1,6 @@
 package com.fancertification.www
 
 import android.annotation.SuppressLint
-import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
@@ -14,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.fancertification.www.databinding.SearchFragmentBinding
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
-import org.json.JSONException
-import java.io.IOException
 
 class SearchFragment : Fragment() {
 
@@ -100,7 +97,8 @@ class SearchFragment : Fragment() {
 
         CoroutineScope(Dispatchers.IO).launch {
 
-            var myList: MutableList<Int>? = null
+           // var myList: MutableList<Int>? = null
+            var myList: MutableList<Long>? = null
 
             val getData = async {
                 UtubeRepository.getChannel(myData.videoId)
@@ -110,8 +108,8 @@ class SearchFragment : Fragment() {
                 ChannelData(
                     myData,
                     myList?.get(0) ?: 0,
-                    myList?.get(1) ?: 0,
-                    myList?.get(2) ?: 0
+                    (myList?.get(1) ?: 0).toInt(),
+                    (myList?.get(2) ?: 0).toInt()
                 )
             )
         }
