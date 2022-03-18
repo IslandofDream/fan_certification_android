@@ -62,7 +62,7 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
             } else {
                 data.add(
                     ChannelData(
-                        SearchData("null", "원하는 채널을 저장해보세요.", "", ""), 0, 0, 0
+                        SearchData("null", "          원하는 채널을 저장해보세요!", "", ""), 0, 0, 0
                     )
                 )
             }
