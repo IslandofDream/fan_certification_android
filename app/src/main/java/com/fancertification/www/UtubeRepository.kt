@@ -51,7 +51,6 @@ object UtubeRepository {
 
     @Throws(IOException::class)
     fun getUtube(keyword: String): ArrayList<SearchData>? {
-        Log.d("keyword", keyword)
         val originUrl = ("https://www.googleapis.com/youtube/v3/search?"
                 + "part=snippet&q=" + keyword + "&type=channel"
                 + "&key=" + serverKey + "&maxResults=20")

@@ -133,7 +133,6 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
             viewholder.subdate.setText(subinfo)
 
             val viewtext = mList!![position].viewCount
-            Log.e("조회수 길이", viewtext.toString())
             val viewinfo = SpannableStringBuilder("총 영상 조회수\n$viewtext\n회")
             val viewcount = ForegroundColorSpan(Color.parseColor("#8F57FF"))
 

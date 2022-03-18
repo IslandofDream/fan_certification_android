@@ -46,7 +46,6 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         cursor.moveToFirst()
         do {
             if (cursor.count != 0) {
-                Log.e("dbhepler getAllrecord", data.toString())
                 data.add(
                     ChannelData(
                         SearchData(
@@ -92,8 +91,6 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         db.close()
         return data
     }
-
-
     fun updateChannel(channeldata:ChannelData): Boolean{
         val db = writableDatabase  //변경시킬꺼니까
         //val cursor =db.rawQuery(strsql,null)
@@ -166,8 +163,6 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         values.put(SUB_COUNT, data.subscriberCount)
         values.put(VIDEO_COUNT, data.videoCount)
         values.put(SUB_DATE, today.toString())
-        Log.d("ChannelData", data.toString())
-        Log.d("date", today.toString())
         val db = writableDatabase
         val flag = db.insert(TABLE_NAME, null, values) > 0
         db.close()
