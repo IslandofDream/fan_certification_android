@@ -86,7 +86,6 @@ class BookmarkChannel : Fragment() {
                     (myList?.get(1) ?: 0).toInt(),
                     (myList?.get(2) ?: 0).toInt()
                 )
-                bookmarkAdapter.notifyItemChanged(position)
             }
         }
     }
@@ -114,13 +113,36 @@ class BookmarkChannel : Fragment() {
             }
 
         }
+        binding.swiperefresh.setOnRefreshListener {
+            binding.swiperefresh.isRefreshing=true
+            list_refresh()
+            binding.swiperefresh.isRefreshing=false
+
+        }
     }
 
 
     fun list_refresh() {
         channelData = dBhelper.getALLRecord()
         dates = dBhelper.getAlldate()
-        bookmarkAdapter.notifyDataSetChanged()
+        bookmarkAdapter = BookmarkAdapter(requireContext(), channelData, dates)
+        bookmarkAdapter.itemOnClickListener = object : BookmarkAdapter.OnItemClickListener {
+            override fun OnItemClick(
+                holder: BookmarkAdapter.BookMarkViewHolder,
+                view: View,
+                data: ChannelData,
+                position: Int
+            ) {
+                data.data.is_scraped = toggleLayout(
+                    !data.data.is_scraped,
+                    view,
+                    holder.layoutExpand
+                )
+                ChannelSearchTask(data, data.data.is_scraped, position)
+            }
+
+        }
+        binding.list.adapter = bookmarkAdapter
     }
 
     fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
