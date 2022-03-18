@@ -132,29 +132,32 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
             )
             viewholder.subdate.setText(subinfo)
 
-            val viewtext = mList!![position].viewCount
-            val viewinfo = SpannableStringBuilder("총 영상 조회수\n$viewtext\n회")
-            val viewcount = ForegroundColorSpan(Color.parseColor("#8F57FF"))
+//            val viewtext = mList!![position].viewCount
+//            val viewinfo = SpannableStringBuilder("총 영상 조회수\n$viewtext\n회")
+//            val viewcount = ForegroundColorSpan(Color.parseColor("#8F57FF"))
+//
+//            viewinfo.setSpan(
+//                viewcount,
+//                9,
+//                9 + viewtext.toString().length,
+//                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+//            )
+//            viewinfo.setSpan(
+//                boldspan,
+//                9,
+//                9 + viewtext.toString().length,
+//                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+//            )
+//            viewinfo.setSpan(
+//                viewtextSize,
+//                9,
+//                9 + viewtext.toString().length,
+//                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+//            )
+//            viewholder.viewcount.setText(viewinfo)
 
-            viewinfo.setSpan(
-                viewcount,
-                9,
-                9 + viewtext.toString().length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            viewinfo.setSpan(
-                boldspan,
-                9,
-                9 + viewtext.toString().length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            viewinfo.setSpan(
-                viewtextSize,
-                9,
-                9 + viewtext.toString().length,
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            viewholder.viewcount.setText(viewinfo)
+            viewholder.viewcount.setText(mList!![position].viewCount.toString())
+
 
             /*viewholder.toggleButton.setOnClickListener {
                 Log.d("view", it.toString())
