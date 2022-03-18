@@ -1682,6 +1682,8 @@ drawable avd_show_password
 drawable bangtantv
 drawable bigbang
 drawable blackpink
+drawable bookmark_border
+drawable bookmark_viewborder
 drawable border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
@@ -1721,6 +1723,7 @@ drawable googleg_standard_color_18
 drawable hybe_labels
 drawable ic_arrow_left
 drawable ic_arrow_rignt
+drawable ic_carret_up
 drawable ic_clock_black_24dp
 drawable ic_delete
 drawable ic_info
@@ -1932,6 +1935,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detail_text
 id dialog_button
 id dimensions
 id direct
@@ -1999,7 +2003,6 @@ id image
 id imageView
 id imageView2
 id info
-id insert
 id invisible
 id inward
 id italic
@@ -2010,6 +2013,7 @@ id labelGroup
 id labeled
 id largeLabel
 id layout
+id layout_expand
 id left
 id leftToRight
 id light
@@ -2023,6 +2027,7 @@ id list_item
 id loginEmailInputLayout
 id loginLayout
 id loginpwInputLayout2
+id mainItem
 id masked
 id material_clock_display
 id material_clock_face
@@ -2186,6 +2191,7 @@ id staticPostLayout
 id status_bar_latest_event_content
 id stop
 id stretch
+id subdate_text
 id submenuarrow
 id submit_area
 id subscription_tv
@@ -2228,6 +2234,7 @@ id title_image
 id title_template
 id title_tv
 id toggle
+id toolbar
 id top
 id topPanel
 id touch_outside
@@ -2247,6 +2254,7 @@ id useLogo
 id viewPager
 id view_offset_helper
 id view_tree_view_model_store_owner
+id viewcount_text
 id visible
 id visible_removing_fragment_view_tag
 id wide
@@ -2318,6 +2326,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_login
 layout activity_main
+layout bookmark_adapter_item
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -2353,6 +2362,7 @@ layout material_time_input
 layout material_timepicker
 layout material_timepicker_dialog
 layout material_timepicker_textinput_display
+layout menubar
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -2421,7 +2431,6 @@ mipmap ic_launcher2
 mipmap ic_launcher_round
 mipmap ic_launcher_round2
 plurals mtrl_badge_content_description
-raw mydatabase
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

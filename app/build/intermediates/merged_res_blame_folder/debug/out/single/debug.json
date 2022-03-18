@@ -20,16 +20,20 @@
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/activity_login.xml"
     },
     {
-        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher2.png.flat",
-        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/mipmap-xxhdpi/ic_launcher2.png"
-    },
-    {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/font_font_res.xml.flat",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/font/font_res.xml"
     },
     {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-xxhdpi_ic_launcher2.png.flat",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/mipmap-xxhdpi/ic_launcher2.png"
+    },
+    {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_ic_info.xml.flat",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/drawable/ic_info.xml"
+    },
+    {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_bookmark_border.xml.flat",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/drawable/bookmark_border.xml"
     },
     {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_ic_setting.xml.flat",
@@ -52,6 +56,10 @@
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/drawable-v24/blackpink.png"
     },
     {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_ic_carret_up.xml.flat",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/drawable/ic_carret_up.xml"
+    },
+    {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-mdpi_ic_launcher_round2.webp.flat",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/mipmap-mdpi/ic_launcher_round2.webp"
     },
@@ -70,6 +78,10 @@
     {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher_round2.webp.flat",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round2.webp"
+    },
+    {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/layout_bookmark_adapter_item.xml.flat",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/bookmark_adapter_item.xml"
     },
     {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-anydpi-v26_ic_launcher2.xml.flat",
@@ -108,8 +120,16 @@
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/font/notosans_light.otf"
     },
     {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/layout_menubar.xml.flat",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/menubar.xml"
+    },
+    {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_bookmark_viewborder.xml.flat",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/drawable/bookmark_viewborder.xml"
     },
     {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-xxxhdpi_ic_launcher.webp.flat",
@@ -218,10 +238,6 @@
     {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/mipmap-xhdpi_ic_launcher_round2.webp.flat",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/mipmap-xhdpi/ic_launcher_round2.webp"
-    },
-    {
-        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/raw_mydatabase.db.flat",
-        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/raw/mydatabase.db"
     },
     {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/merged_res/debug/drawable_ic_youtube.xml.flat",

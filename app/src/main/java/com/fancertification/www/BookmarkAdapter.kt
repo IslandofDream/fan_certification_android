@@ -22,9 +22,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class BookmarkAdapter(var context: Context, list: ArrayList<ChannelData>?, date: ArrayList<String>) :
+class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelData>?, date: ArrayList<String>) :
     RecyclerView.Adapter<BookmarkAdapter.BookMarkViewHolder>() {
 
+    var itemOnClickListener:OnItemClickListener?=null
 
     var mList: ArrayList<ChannelData>?
     var dates: ArrayList<String>
@@ -35,7 +36,7 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ChannelData>?, date:
     // TODO 동적으로 숫자의 크기에 따라 크기가 변화하거나 단위를 22.3억 이런식으로 남기는등의 표현 방식이 필요함
     
     interface OnItemClickListener {
-        fun OnItemClick(holder: RecyclerView.ViewHolder, view: View, data: SearchData, position: Int)
+        fun OnItemClick(holder: BookMarkViewHolder, view: View, data: ChannelData, position: Int)
     }
 
     inner class BookMarkViewHolder(binding: BookmarkAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -47,6 +48,11 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ChannelData>?, date:
         val subdate: TextView = binding.subdateText
         val toggleButton:ImageView = binding.bookmarkBtn
         val layoutExpand: LinearLayout = binding.layoutExpand
+        init {
+            binding.bookmarkBtn?.setOnClickListener {
+                itemOnClickListener?.OnItemClick(this, it, list!![adapterPosition],adapterPosition)
+            }
+        }
 
     }
 
@@ -73,6 +79,7 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ChannelData>?, date:
 
 
         //item_utube xml파일을 객체화 시킨다.
+
 
         return BookMarkViewHolder(BookmarkAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
     }
@@ -150,18 +157,21 @@ class BookmarkAdapter(var context: Context, list: ArrayList<ChannelData>?, date:
             )
             viewholder.viewcount.setText(viewinfo)
 
-            viewholder.toggleButton.setOnClickListener { //토글 버튼 누르면 세부정보 표시
+            /*viewholder.toggleButton.setOnClickListener {
+                Log.d("view", it.toString())
                 val show =
                     toggleLayout(!mList!![position].data.is_scraped, it, viewholder.layoutExpand)
                 mList!![position].data.is_scraped = show
-            }
 
+            }
+*/
         }
     }
 
-    private fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
+     fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
         // 토글 레이아웃을 위한 애니메이션
         toggleAnimation.toggleArrow(view, isExpanded)
+         Log.d("hi", isExpanded.toString())
         if (isExpanded) {
             toggleAnimation.expand(layoutExpand)
         } else {

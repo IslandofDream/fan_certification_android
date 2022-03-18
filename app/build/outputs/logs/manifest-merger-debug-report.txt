@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
 MERGED from [androidx.databinding:databinding-adapters:7.1.2] /Users/minho/.gradle/caches/transforms-3/d38e9e2fdee4fe03d2f68b8379a04858/transformed/databinding-adapters-7.1.2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-ktx:7.1.2] /Users/minho/.gradle/caches/transforms-3/bcf7e03f7a30c0a4b0430bbc59f27300/transformed/jetified-databinding-ktx-7.1.2/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.databinding:databinding-runtime:7.1.2] /Users/minho/.gradle/caches/transforms-3/83f40f0e5791c48acee457160dea63a3/transformed/databinding-runtime-7.1.2/AndroidManifest.xml:17:1-24:12
@@ -89,25 +89,27 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/minh
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] /Users/minho/.gradle/caches/transforms-3/b24726c88f4a52db69234f21d4019ce4/transformed/jetified-annotation-experimental-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] /Users/minho/.gradle/caches/transforms-3/1c900d4b82d1975d597c405abdc4c0b8/transformed/jetified-protolite-well-known-types-18.0.0/AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.41.0] /Users/minho/.gradle/caches/transforms-3/35609ea0420f166b7257826bfad423b1/transformed/jetified-grpc-android-1.41.0/AndroidManifest.xml:2:1-13:12
-INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
 	package
 		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
 		INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-35:12
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:1-38:12
 		INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:2:11-69
+	android:installLocation
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:4:5-45
 uses-permission#android.permission.INTERNET
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:4:5-67
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:6:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] /Users/minho/.gradle/caches/transforms-3/be76a95995bb38c696f7d358c3cd9da8/transformed/jetified-firebase-auth-21.0.1/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] /Users/minho/.gradle/caches/transforms-3/be76a95995bb38c696f7d358c3cd9da8/transformed/jetified-firebase-auth-21.0.1/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-firestore:24.0.1] /Users/minho/.gradle/caches/transforms-3/25f4664ab8c9a95b4a19e8e43d3ee812/transformed/jetified-firebase-firestore-24.0.1/AndroidManifest.xml:14:5-67
@@ -123,17 +125,17 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:20.0.2] /User
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/minho/.gradle/caches/transforms-3/5db44ebd482bed3fcbf9e867fbb9907d/transformed/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:20.0.2] /Users/minho/.gradle/caches/transforms-3/5db44ebd482bed3fcbf9e867fbb9907d/transformed/jetified-play-services-measurement-sdk-api-20.0.2/AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:6:22-64
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:5:5-80
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:7:5-80
 	android:name
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:5:22-77
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:7:22-77
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:6:5-80
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:8:5-80
 	android:name
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:6:22-78
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:8:22-78
 application
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:7:5-33:19
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:9:5-36:19
 MERGED from [com.google.android.material:material:1.3.0] /Users/minho/.gradle/caches/transforms-3/d67af6fcb937f94e6a00eced53a294fc/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0] /Users/minho/.gradle/caches/transforms-3/d67af6fcb937f94e6a00eced53a294fc/transformed/material-1.3.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] /Users/minho/.gradle/caches/transforms-3/380a46a7912b55814edcb29e6f59e2b5/transformed/constraintlayout-2.0.4/AndroidManifest.xml:9:5-20
@@ -197,43 +199,43 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/minh
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.2] /Users/minho/.gradle/caches/transforms-3/798370e4ba02d8f2e15382f9275ce10e/transformed/core-1.3.2/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:10:9-41
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:12:9-41
 	android:hardwareAccelerated
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:13:9-43
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:15:9-43
 	android:roundIcon
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:11:9-55
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:13:9-55
 	android:icon
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:9:9-44
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:11:9-44
 	android:allowBackup
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:8:9-35
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:10:9-35
 	android:theme
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:15:9-62
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:18:9-62
 activity#com.fancertification.www.MainActivity
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:16:9-26:20
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:19:9-29:20
 	android:windowSoftInputMode
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:18:13-56
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:21:13-56
 	android:exported
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:19:13-36
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:22:13-36
 	android:name
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:17:13-41
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:20:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:21:13-25:29
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:24:13-28:29
 action#android.intent.action.MAIN
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:22:17-69
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:25:17-69
 	android:name
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:22:25-66
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:25:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:24:17-77
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:24:27-74
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:27:27-74
 activity#com.fancertification.www.LoginActivity
-ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:28:9-30:20
+ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:31:9-33:20
 	android:exported
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:29:13-36
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:32:13-36
 	android:name
-		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:28:19-48
+		ADDED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml:31:19-48
 uses-sdk
 INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/minho/StudioProjects/fan_certification_android/app/src/main/AndroidManifest.xml

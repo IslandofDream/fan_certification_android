@@ -20,11 +20,19 @@
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/activity_login.xml"
     },
     {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/bookmark_adapter_item.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/bookmark_adapter_item.xml"
+    },
+    {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/activity_main.xml"
     },
     {
         "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_bookmark.xml",
         "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/fragment_bookmark.xml"
+    },
+    {
+        "merged": "/Users/minho/StudioProjects/fan_certification_android/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/menubar.xml",
+        "source": "/Users/minho/StudioProjects/fan_certification_android/app/src/main/res/layout/menubar.xml"
     }
 ]

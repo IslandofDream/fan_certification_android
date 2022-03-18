@@ -64,6 +64,7 @@ class SearchFragment : Fragment() {
                 searchData[position].is_scraped = !searchData[position].is_scraped
                 utubeAdapter.notifyDataSetChanged()
                 ChannelSearchTask(data)
+
             }
         }
         binding.recyclerView.adapter = utubeAdapter

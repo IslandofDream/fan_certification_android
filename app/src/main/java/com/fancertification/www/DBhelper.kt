@@ -95,21 +95,6 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
 
 
     fun updateChannel(channeldata:ChannelData): Boolean{
-//        val id = channeldata.data.videoId
-//        val title = channeldata.data.title
-//        val thumbnail = channeldata.data.imageUrl
-//        val description = channeldata.data.description
-//        val viewcount = channeldata.viewCount
-//        val sub_count = channeldata.subscriberCount
-//        val videocount = channeldata.videoCount
-
-//        val strsql = "update $TABLE_NAME set $CHANNELTITLE = $title" +
-//                "$THUMBNAIL = $thumbnail, "+
-//                "$DESCRIPTION = $description, "+
-//                "$VIEW_COUNT = $viewcount, "+
-//                "$SUB_COUNT = $sub_count, "+
-//                "$VIDEO_COUNT = $videocount "+
-//                "where $CHANNELID= '$id';"
         val db = writableDatabase  //변경시킬꺼니까
         //val cursor =db.rawQuery(strsql,null)
         val values = ContentValues()
