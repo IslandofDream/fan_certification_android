@@ -100,17 +100,49 @@
                 android:fontFamily="@font/notosans_bold"
                 android:textAlignment="center" />
 
-            <TextView
-                android:id="@+id/viewcount_text"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textSize="21sp"
-                android:textColor="#B089FF"
                 android:layout_margin="5dp"
-                android:layout_weight="0.5"
                 android:background="@drawable/bookmark_viewborder"
-                android:fontFamily="@font/notosans_bold"
-                android:textAlignment="center" />
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/viewcount_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    android:textColor="#B089FF"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="총 영상 조회수"
+                    android:textAlignment="center" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/viewcount_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:textColor="#8F57FF"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="12sp"
+                    android:autoSizeMaxTextSize="70sp"
+                    android:autoSizeStepGranularity="2sp"
+                    android:maxLines="1"
+                    android:fontFamily="@font/notosans_bold"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/viewcount_end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    android:textColor="#B089FF"
+                    android:fontFamily="@font/notosans_bold"
+                    android:text="회"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
         </LinearLayout>
     </LinearLayout>
 

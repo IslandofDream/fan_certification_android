@@ -44,7 +44,7 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
         val title: TextView = binding.titleTv //binding TextView in item_health_info.xml
         val detail: TextView = binding.subscriptionTv // binding TextView in item_health_info.xml
         val image: ImageView = binding.titleImage
-        val viewcount: TextView = binding.viewcountText
+        val viewcount: TextView = binding.viewcountContent
         val subdate: TextView = binding.subdateText
         val toggleButton:ImageView = binding.bookmarkBtn
         val layoutExpand: LinearLayout = binding.layoutExpand
