@@ -1,4 +1,4 @@
-package com.fancertification.www
+package com.fancertification.www.search
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,10 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.fancertification.www.data.SearchData
+import com.fancertification.www.data.ChannelData
 import com.fancertification.www.databinding.SearchFragmentBinding
+import com.fancertification.www.localdb.DBhelper
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
 

@@ -1,20 +1,18 @@
-package com.fancertification.www
-import android.content.Intent;
+package com.fancertification.www.search
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import android.R
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
 import android.graphics.PorterDuff
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
-import com.fancertification.www.databinding.ExampleAdapterItemBinding
+import com.fancertification.www.data.SearchData
+import com.fancertification.www.databinding.SearchAdapterItemBinding
 import java.util.ArrayList
 
 
@@ -28,7 +26,7 @@ class UtubeAdapter(var context: Context, list: ArrayList<SearchData>?) :
         fun OnItemClick(holder: RecyclerView.ViewHolder, view: View, data: SearchData, position: Int)
     }
 
-    inner class UtubeViewHolder(binding: ExampleAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class UtubeViewHolder(binding: SearchAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         val title: TextView = binding.titleTv //binding TextView in item_health_info.xml
         val detail: TextView = binding.subscriptionTv // binding TextView in item_health_info.xml
@@ -51,7 +49,7 @@ class UtubeAdapter(var context: Context, list: ArrayList<SearchData>?) :
 
         //item_utube xml파일을 객체화 시킨다.
 
-        return UtubeViewHolder(ExampleAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
+        return UtubeViewHolder(SearchAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
     }
 
     override fun onBindViewHolder(viewholder: UtubeViewHolder, position: Int) {

@@ -26,5 +26,5 @@
         android:overScrollMode="never"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/example_adapter_item"/>
+        tools:listitem="@layout/search_adapter_item"/>
 </LinearLayout>

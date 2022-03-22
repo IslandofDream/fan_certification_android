@@ -1,14 +1,12 @@
-package com.fancertification.www
+package com.fancertification.www.localdb
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.provider.UserDictionary.Words.WORD
-import android.util.Log
-import androidx.core.database.getIntOrNull
-import androidx.core.database.getStringOrNull
+import com.fancertification.www.data.SearchData
+import com.fancertification.www.data.ChannelData
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -59,7 +57,7 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
                         cursor.getInt(6)
                     )
                 )
-            } else {
+            } else { //db에 아무것도 없을 경우
                 data.add(
                     ChannelData(
                         SearchData("null", "          원하는 채널을 저장해보세요!", "", ""), 0, 0, 0
@@ -83,7 +81,7 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
                 data.add(
                     cursor.getString(0)
                 )
-            } else {
+            } else { // db에 아무것도 없으면 명시적으로 null을 넣어준다.
                 data.add("null")
             }
         } while (cursor.moveToNext())
@@ -91,11 +89,9 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         db.close()
         return data
     }
-    fun updateChannel(channeldata:ChannelData): Boolean{
+    fun updateChannel(channeldata: ChannelData): Boolean{
         val db = writableDatabase  //변경시킬꺼니까
-        //val cursor =db.rawQuery(strsql,null)
         val values = ContentValues()
-        //values.put(CHANNELID, channeldata.data.videoId)
         values.put(CHANNELTITLE, channeldata.data.title)
         values.put(THUMBNAIL, channeldata.data.imageUrl)
         values.put(DESCRIPTION, channeldata.data.description)
@@ -105,49 +101,8 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         val flag = db.update(TABLE_NAME, values, "$CHANNELID =?", arrayOf(channeldata.data.videoId))
         db.close()
        return flag == 1
-//        cursor.close()
     }
 
-//    fun getPosition(): ArrayList<Int> { // 모든 데이터 반환 북마크 프래그먼트에 출력하기 위함
-//        var position: ArrayList<Int> = ArrayList()
-//        val strsql = "select * from $TABLE_NAME order by LOWER($POSITION) ASC;"
-//        val db = readableDatabase
-//        val cursor = db.rawQuery(strsql, null)
-//        cursor.moveToFirst()
-//        do {
-//            if(cursor.count != 0){ position.add(cursor.getInt(0)) }
-//        } while (cursor.moveToNext())
-//        cursor.close()
-//        db.close()
-//        return position
-//    }
-
-
-    @SuppressLint("Recycle")
-    fun checkoverbookmark(id: String): Boolean { // 검색 프래그먼트에서 검색결과를 띄울때 북마크 확인
-        val strsql = """select * from $TABLE_NAME where $CHANNELID ='$id';"""
-        val db = readableDatabase
-        val cursor = db.rawQuery(strsql, null)
-        cursor.moveToFirst()
-        return cursor.count == 0
-    }
-
-//    fun upadatePosition(pos:Int, id:String) :Boolean{ // 위치 변경을 위한 함수
-//        val db = writableDatabase  //변경시킬꺼니까
-//            Log.e("dbpos",pos.toString())
-//            val strsql = "update $TABLE_NAME set $POSITION = '$pos' where $CHANNELID = '$id';"
-//            val cursor = db.rawQuery(strsql,null)
-//            if(cursor.count > 0) {
-//                cursor.close()
-//                db.close()
-//                return true
-//            }
-//            else{
-//                cursor.close()
-//                db.close()
-//                return false
-//            }
-//    }
 
     @SuppressLint("SimpleDateFormat")
     fun insertchannel(data: ChannelData): Boolean { // 채널 삽입
@@ -184,10 +139,6 @@ class DBhelper(val context: Context?) : SQLiteOpenHelper(context, DB_NAME, null,
         return flag
     }
 
-    fun upDateBookmark(id: String, position: Int): String {
-//https://jong99.tistory.com/114 참고
-        return "Success"
-    }
 
     override fun onCreate(db: SQLiteDatabase?) { // 데이터베이스 처음 생성될때
 

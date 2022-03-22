@@ -1,11 +1,11 @@
-package com.fancertification.www
+package com.fancertification.www.bookmark
 
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.Transformation
 
-class toggleAnimation {
+class ToggleAnimation {
 
     companion object {
 

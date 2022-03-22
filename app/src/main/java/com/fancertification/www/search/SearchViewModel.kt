@@ -1,4 +1,4 @@
-package com.fancertification.www
+package com.fancertification.www.search
 
 import androidx.lifecycle.ViewModel
 

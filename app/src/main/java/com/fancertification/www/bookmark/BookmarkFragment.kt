@@ -1,4 +1,4 @@
-package com.fancertification.www
+package com.fancertification.www.bookmark
 
 import android.os.Bundle
 import android.util.Log
@@ -6,21 +6,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.fancertification.www.data.ChannelData
+import com.fancertification.www.data.SearchData
 import com.fancertification.www.databinding.FragmentBookmarkBinding
+import com.fancertification.www.localdb.DBhelper
+import com.fancertification.www.search.UtubeRepository
 import kotlinx.coroutines.*
 import kotlin.collections.ArrayList
 
-class BookmarkChannel : Fragment() {
+class BookmarkFragment : Fragment() {
     lateinit var binding: FragmentBookmarkBinding
     lateinit var dBhelper: DBhelper
     lateinit var bookmarkAdapter: BookmarkAdapter
     lateinit var channelData: ArrayList<ChannelData>
     lateinit var dates: ArrayList<String>
-//    lateinit var position: ArrayList<Int> // 화면상의 포지션
 
     override fun onResume() {
         super.onResume()
@@ -46,8 +47,6 @@ class BookmarkChannel : Fragment() {
     private fun ChannelSearchTask(myData: ChannelData, is_scraped: Boolean, position: Int) {
 
         CoroutineScope(Dispatchers.IO).launch {
-
-            // var myList: MutableList<Int>? = null
             var myList: MutableList<Long>? = null
 
             val getData = async {
@@ -147,12 +146,11 @@ class BookmarkChannel : Fragment() {
 
     fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
         // 토글 레이아웃을 위한 애니메이션
-        toggleAnimation.toggleArrow(view, isExpanded)
+        ToggleAnimation.toggleArrow(view, isExpanded)
         if (isExpanded) {
-            toggleAnimation.expand(layoutExpand)
+            ToggleAnimation.expand(layoutExpand)
         } else {
-            Log.d("call!", "Call!!!")
-            toggleAnimation.collapse(layoutExpand)
+            ToggleAnimation.collapse(layoutExpand)
         }
         return isExpanded
     }

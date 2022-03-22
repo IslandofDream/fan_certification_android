@@ -1,6 +1,7 @@
-package com.fancertification.www
+package com.fancertification.www.search
 
 import android.util.Log
+import com.fancertification.www.data.SearchData
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.BufferedReader

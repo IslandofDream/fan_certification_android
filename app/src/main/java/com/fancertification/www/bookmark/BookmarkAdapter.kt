@@ -1,4 +1,4 @@
-package com.fancertification.www
+package com.fancertification.www.bookmark
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
@@ -17,6 +17,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.fancertification.www.data.ChannelData
+import com.fancertification.www.localdb.DBhelper
 import com.fancertification.www.databinding.BookmarkAdapterItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,7 +27,7 @@ import java.util.*
 class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelData>?, date: ArrayList<String>) :
     RecyclerView.Adapter<BookmarkAdapter.BookMarkViewHolder>() {
 
-    var itemOnClickListener:OnItemClickListener?=null
+    var itemOnClickListener: OnItemClickListener?=null
 
     var mList: ArrayList<ChannelData>?
     var dates: ArrayList<String>
@@ -33,7 +35,6 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
     val boldspan = StyleSpan(Typeface.BOLD) // 텍스트 변환을 위한 볼드 객체
     val textSize = RelativeSizeSpan(3.3f) // 텍스트 사이즈 변환을 위한 사이즈 객체 변환결과 3.3배 차이남
     val viewtextSize = RelativeSizeSpan(1.4f) // 총조회수용 텍스트 사이즈
-    // TODO 동적으로 숫자의 크기에 따라 크기가 변화하거나 단위를 22.3억 이런식으로 남기는등의 표현 방식이 필요함
     
     interface OnItemClickListener {
         fun OnItemClick(holder: BookMarkViewHolder, view: View, data: ChannelData, position: Int)
@@ -56,31 +57,10 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
 
     }
 
-    fun removeItem(pos:Int){ // 스와이프에 쓰일 아이
-        mList?.removeAt(pos)
-        notifyItemRemoved(pos)
-    }
-
-    fun moveItem(curpos : Int, targetpos : Int){
-        notifyItemMoved(curpos,targetpos)
-        val dbhelper = DBhelper(context)
-        for(i in 0..mList!!.size)
-        {
-            //TODO 포지션 정보를 업데이트 갱신
-        //dbhelper.upadatePosition(mList!![].position)
-        }
-
-    }
-
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
     ): BookMarkViewHolder {
-
-
-        //item_utube xml파일을 객체화 시킨다.
-
-
         return BookMarkViewHolder(BookmarkAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
     }
 
@@ -131,53 +111,18 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
             )
             viewholder.subdate.setText(subinfo)
-
-//            val viewtext = mList!![position].viewCount
-//            val viewinfo = SpannableStringBuilder("총 영상 조회수\n$viewtext\n회")
-//            val viewcount = ForegroundColorSpan(Color.parseColor("#8F57FF"))
-//
-//            viewinfo.setSpan(
-//                viewcount,
-//                9,
-//                9 + viewtext.toString().length,
-//                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-//            )
-//            viewinfo.setSpan(
-//                boldspan,
-//                9,
-//                9 + viewtext.toString().length,
-//                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-//            )
-//            viewinfo.setSpan(
-//                viewtextSize,
-//                9,
-//                9 + viewtext.toString().length,
-//                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-//            )
-//            viewholder.viewcount.setText(viewinfo)
-
-            viewholder.viewcount.setText(mList!![position].viewCount.toString())
-
-
-            /*viewholder.toggleButton.setOnClickListener {
-                Log.d("view", it.toString())
-                val show =
-                    toggleLayout(!mList!![position].data.is_scraped, it, viewholder.layoutExpand)
-                mList!![position].data.is_scraped = show
-
-            }
-*/
         }
+        viewholder.viewcount.setText(mList!![position].viewCount.toString()) // 총 조회수 표시
     }
 
      fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
         // 토글 레이아웃을 위한 애니메이션
-        toggleAnimation.toggleArrow(view, isExpanded)
+         ToggleAnimation.toggleArrow(view, isExpanded)
          Log.d("hi", isExpanded.toString())
         if (isExpanded) {
-            toggleAnimation.expand(layoutExpand)
+            ToggleAnimation.expand(layoutExpand)
         } else {
-            toggleAnimation.collapse(layoutExpand)
+            ToggleAnimation.collapse(layoutExpand)
         }
         return isExpanded
     }
