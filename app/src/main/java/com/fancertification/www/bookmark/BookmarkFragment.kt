@@ -26,8 +26,6 @@ class BookmarkFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         list_refresh()
-
-
     }
 
     override fun onCreateView(

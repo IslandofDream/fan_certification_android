@@ -34,7 +34,7 @@ class UtubeAdapter(var context: Context, list: ArrayList<SearchData>?) :
         val bookmark: ImageButton = binding.bookmarkBtn
 
         init {
-            binding.bookmarkBtn.setOnClickListener { //click event for suggestion btton
+            binding.bookmarkBtn.setOnClickListener { //click event for suggestion button
                 itemOnClickListener?.OnItemClick(this, it,
                     mList?.get(adapterPosition)!!, adapterPosition)
             }
@@ -53,8 +53,6 @@ class UtubeAdapter(var context: Context, list: ArrayList<SearchData>?) :
     }
 
     override fun onBindViewHolder(viewholder: UtubeViewHolder, position: Int) {
-
-
         viewholder.title.setText(mList!![position].title)
         viewholder.detail.setText(mList!![position].description)
         if(mList!![position].is_scraped){
