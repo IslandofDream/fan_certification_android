@@ -39,8 +39,6 @@ class SearchFragment : Fragment() {
         dBhelper = DBhelper(context)
         binding = SearchFragmentBinding.inflate(inflater, container, false)
         binding.searchEdit.setImeActionLabel("Done", KeyEvent.KEYCODE_ENTER)
-
-
         binding.searchEdit.setOnEditorActionListener { v, actionId, event ->
 
             Log.d("action", "enter")
@@ -64,10 +62,15 @@ class SearchFragment : Fragment() {
                 data: SearchData,
                 position: Int
             ) {
-                searchData[position].is_scraped = !searchData[position].is_scraped
-                utubeAdapter.notifyDataSetChanged()
-                ChannelSearchTask(data)
-
+                if(searchData[position].is_scraped){ // 이미 북마크 되어있는 경우 db에서 삭제하고 북마크 이미지를 변경합니다.
+                    searchData[position].is_scraped = !searchData[position].is_scraped
+                    utubeAdapter.notifyDataSetChanged()
+                    dBhelper.deleteChannel(searchData[position].videoId)
+                }else{ // 북마크 되어있지 않은 경우 북마크 이미지를 변경하고 api를 호출해 데이터베이스에 넣어줍니다.
+                    searchData[position].is_scraped = !searchData[position].is_scraped
+                    utubeAdapter.notifyDataSetChanged()
+                    ChannelSearchTask(data)
+                }
             }
         }
         binding.recyclerView.adapter = utubeAdapter
