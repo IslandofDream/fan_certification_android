@@ -25,5 +25,6 @@
     <color name="selectRed">#FF5454</color>
     <color name="darkgray1">#5C5F66</color>
     <color name="darkgray2">#292C34</color>
+    <color name="background">#F7F7F7</color>
 
 </resources>

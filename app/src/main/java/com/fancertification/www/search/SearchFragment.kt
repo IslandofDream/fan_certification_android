@@ -53,7 +53,6 @@ class SearchFragment : Fragment() {
         }
 
         utubeAdapter = UtubeAdapter(requireContext(), searchData)
-
         utubeAdapter.itemOnClickListener = object : UtubeAdapter.OnItemClickListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun OnItemClick(
@@ -74,7 +73,6 @@ class SearchFragment : Fragment() {
             }
         }
         binding.recyclerView.adapter = utubeAdapter
-
         return binding.root
     }
 
