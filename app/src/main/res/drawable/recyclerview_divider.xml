@@ -4,10 +4,6 @@
         android:width="1dp"
         android:height="1dp"
         />
-    <padding
-        android:left="10dp"
-        android:right="10dp"
-        />
     <solid android:color="#DBDCDC" />
 </shape>
 

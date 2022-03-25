@@ -10,13 +10,16 @@
 
         android:id="@+id/swiperefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+
+        android:layout_marginHorizontal="16dp"
+        android:layout_height="wrap_content">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:paddingTop="20dp"
+        android:layout_marginHorizontal="16dp"
         android:overScrollMode="never"
-        android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_height="wrap_content"
+ />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>
