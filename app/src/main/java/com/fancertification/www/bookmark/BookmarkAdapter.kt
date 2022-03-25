@@ -1,4 +1,5 @@
 package com.fancertification.www.bookmark
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
@@ -24,10 +25,14 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelData>?, date: ArrayList<String>) :
+class BookmarkAdapter(
+    var context: Context,
+    private val list: ArrayList<ChannelData>?,
+    date: ArrayList<String>
+) :
     RecyclerView.Adapter<BookmarkAdapter.BookMarkViewHolder>() {
 
-    var itemOnClickListener: OnItemClickListener?=null
+    var itemOnClickListener: OnItemClickListener? = null
 
     var mList: ArrayList<ChannelData>?
     var dates: ArrayList<String>
@@ -35,23 +40,25 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
     val boldspan = StyleSpan(Typeface.BOLD) // 텍스트 변환을 위한 볼드 객체
     val textSize = RelativeSizeSpan(3.3f) // 텍스트 사이즈 변환을 위한 사이즈 객체 변환결과 3.3배 차이남
     val viewtextSize = RelativeSizeSpan(1.4f) // 총조회수용 텍스트 사이즈
-    
+
     interface OnItemClickListener {
         fun OnItemClick(holder: BookMarkViewHolder, view: View, data: ChannelData, position: Int)
     }
 
-    inner class BookMarkViewHolder(binding: BookmarkAdapterItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class BookMarkViewHolder(binding: BookmarkAdapterItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         val title: TextView = binding.titleTv //binding TextView in item_health_info.xml
         val detail: TextView = binding.subscriptionTv // binding TextView in item_health_info.xml
         val image: ImageView = binding.titleImage
         val viewcount: TextView = binding.viewcountContent
         val subdate: TextView = binding.subdateText
-        val toggleButton:ImageView = binding.bookmarkBtn
+        val toggleButton: ImageView = binding.bookmarkBtn
         val layoutExpand: LinearLayout = binding.layoutExpand
+
         init {
             binding.bookmarkBtn?.setOnClickListener {
-                itemOnClickListener?.OnItemClick(this, it, list!![adapterPosition],adapterPosition)
+                itemOnClickListener?.OnItemClick(this, it, list!![adapterPosition], adapterPosition)
             }
         }
 
@@ -61,23 +68,34 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
         viewGroup: ViewGroup,
         viewType: Int
     ): BookMarkViewHolder {
-        return BookMarkViewHolder(BookmarkAdapterItemBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false))
+        return BookMarkViewHolder(
+            BookmarkAdapterItemBinding.inflate(
+                LayoutInflater.from(viewGroup.context),
+                viewGroup,
+                false
+            )
+        )
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewholder: BookMarkViewHolder, position: Int) {
-        
-        if(mList!![position].data.videoId == "null"){ // db에 아무것도 없는 초기상황일경우
+
+        if (mList!![position].data.videoId == "null") { // db에 아무것도 없는 초기상황일경우
             viewholder.title.setText(mList!![position].data.title)
             viewholder.toggleButton.visibility = View.GONE
-        }else {
+        } else {
             //영상제목 세팅
             viewholder.title.setText(mList!![position].data.title)
             //날짜 세팅
-            viewholder.detail.setText(
+            viewholder.detail.text = if (mList!![position].subscriberCount == -1) {
+
+                "총 동영상 개수 : " + mList!![position].videoCount.toString() + " · " +
+                        ("구독자 : 비공개")
+
+            } else {
                 "총 동영상 개수 : " + mList!![position].videoCount.toString() + " · " +
                         ("구독자 : " + mList!![position].subscriberCount.toString())
-            )
+            }
             //이미지를 넣어주기 위해 이미지url을 가져온다.
             val imageUrl: String = mList!![position].data.imageUrl
             //영상 썸네일 세팅
@@ -93,7 +111,8 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
             val subinfo = SpannableStringBuilder("구독한 기간!\n$subday\n일째")
             val subcount = ForegroundColorSpan(Color.parseColor("#FF5454"))
 
-            subinfo.setSpan(subcount,
+            subinfo.setSpan(
+                subcount,
                 8,
                 8 + subday.toString().length,
                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
@@ -115,10 +134,10 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
         viewholder.viewcount.setText(mList!![position].viewCount.toString()) // 총 조회수 표시
     }
 
-     fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
+    fun toggleLayout(isExpanded: Boolean, view: View, layoutExpand: LinearLayout): Boolean {
         // 토글 레이아웃을 위한 애니메이션
-         ToggleAnimation.toggleArrow(view, isExpanded)
-         Log.d("hi", isExpanded.toString())
+        ToggleAnimation.toggleArrow(view, isExpanded)
+        Log.d("hi", isExpanded.toString())
         if (isExpanded) {
             ToggleAnimation.expand(layoutExpand)
         } else {
@@ -126,7 +145,6 @@ class BookmarkAdapter(var context: Context, private val list: ArrayList<ChannelD
         }
         return isExpanded
     }
-
 
 
     override fun getItemCount(): Int {

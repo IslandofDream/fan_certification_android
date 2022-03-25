@@ -88,9 +88,17 @@ object UtubeRepository {
         val c = contacts!!.getJSONObject(0)
 
 
+        Log.d("here!", c.toString())
         //val changString: String = stringToHtmlSign(title)
         val viewCount = c.getJSONObject("statistics").getLong("viewCount")
-        val subscriberCount = c.getJSONObject("statistics").getLong("subscriberCount")
+        val subscriberCount: Long =
+            if (c.getJSONObject("statistics").getBoolean("hiddenSubscriberCount")) {
+                -1
+            } else {
+                c.getJSONObject("statistics").getLong("subscriberCount")
+            }
+
+
         val videoCount = c.getJSONObject("statistics").getLong("videoCount")
         val myList = mutableListOf(
             viewCount,
