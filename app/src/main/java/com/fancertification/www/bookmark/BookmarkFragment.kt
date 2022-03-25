@@ -1,5 +1,7 @@
 package com.fancertification.www.bookmark
 
+
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,7 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper.VERTICAL
+import com.fancertification.www.R
 import com.fancertification.www.data.ChannelData
 import com.fancertification.www.data.SearchData
 import com.fancertification.www.databinding.FragmentBookmarkBinding
@@ -28,6 +33,7 @@ class BookmarkFragment : Fragment() {
         list_refresh()
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +41,10 @@ class BookmarkFragment : Fragment() {
         binding = FragmentBookmarkBinding.inflate(inflater, container, false)
         initData()
         binding.apply {
+            val decoration = DividerItemDecoration(context,VERTICAL)
+            decoration.setDrawable(context!!.resources!!.getDrawable(R.drawable.recyclerview_divider))
             list.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            list.addItemDecoration(decoration)
 
 
         }

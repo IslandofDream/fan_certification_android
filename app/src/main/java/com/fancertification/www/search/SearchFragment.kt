@@ -9,7 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.fancertification.www.R
 import com.fancertification.www.data.SearchData
 import com.fancertification.www.data.ChannelData
 import com.fancertification.www.databinding.SearchFragmentBinding
@@ -37,6 +41,9 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         dBhelper = DBhelper(context)
+        val decoration = DividerItemDecoration(context, OrientationHelper.VERTICAL)
+        decoration.setDrawable(context!!.resources!!.getDrawable(R.drawable.recyclerview_divider))
+        // 구분선을 위한 데코레이션 객체 선언
         binding = SearchFragmentBinding.inflate(inflater, container, false)
         binding.searchEdit.setImeActionLabel("Done", KeyEvent.KEYCODE_ENTER)
         binding.searchEdit.setOnEditorActionListener { v, actionId, event ->
@@ -72,6 +79,7 @@ class SearchFragment : Fragment() {
                 }
             }
         }
+        binding.recyclerView.addItemDecoration(decoration)
         binding.recyclerView.adapter = utubeAdapter
         return binding.root
     }
