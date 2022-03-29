@@ -32,7 +32,10 @@
         <entry key="app/src/main/res/layout/menubar.xml" value="0.46616541353383456" />
         <entry key="app/src/main/res/layout/search_fragment.xml" value="0.14149169921875" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1859375" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher2.xml" value="0.1415" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1859375" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round2.xml" value="0.1415" />
+        <entry key="app/src/main/res/mipmap-xxhdpi/ic_launcher_round.xml" value="0.1415" />
       </map>
     </option>
   </component>
