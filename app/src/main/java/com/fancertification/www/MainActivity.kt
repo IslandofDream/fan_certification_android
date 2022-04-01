@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.AsyncTask
 import org.json.JSONException
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.fancertification.www.databinding.ActivityMainBinding
@@ -17,7 +19,6 @@ import java.io.IOException
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var mBackWait:Long = 0
-
 val iconArray = arrayListOf<Int>(
     R.drawable.ic_star,
     R.drawable.ic_search,

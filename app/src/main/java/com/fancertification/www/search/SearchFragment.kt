@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +28,7 @@ class SearchFragment : Fragment() {
     var searchData: ArrayList<SearchData> = ArrayList()
     lateinit var utubeAdapter: UtubeAdapter
     lateinit var dBhelper: DBhelper
+    var imm: InputMethodManager? = null
 
 
     @SuppressLint("NotifyDataSetChanged")
@@ -34,8 +36,17 @@ class SearchFragment : Fragment() {
         super.onPause()
         searchData.clear()
         binding.searchEdit.text.clear()
+        hideKeyboard(binding.searchEdit)
         utubeAdapter.notifyDataSetChanged()
     }
+
+    override fun onResume() {
+        super.onResume()
+        imm =
+            context!!.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+        showKeyboard(binding.searchEdit)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,18 +56,16 @@ class SearchFragment : Fragment() {
         decoration.setDrawable(context!!.resources!!.getDrawable(R.drawable.recyclerview_divider))
         // 구분선을 위한 데코레이션 객체 선언
         binding = SearchFragmentBinding.inflate(inflater, container, false)
-        binding.searchEdit.setImeActionLabel("Done", KeyEvent.KEYCODE_ENTER)
+
         binding.searchEdit.setOnEditorActionListener { v, actionId, event ->
 
             Log.d("action", "enter")
-            var handled = false
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 //searchTask().execute()
                 SearchTask()
-                handled = true
-
+                hideKeyboard(binding.searchEdit)
             }
-            handled
+            true
         }
 
         utubeAdapter = UtubeAdapter(requireContext(), searchData)
@@ -68,11 +77,11 @@ class SearchFragment : Fragment() {
                 data: SearchData,
                 position: Int
             ) {
-                if(searchData[position].is_scraped){ // 이미 북마크 되어있는 경우 db에서 삭제하고 북마크 이미지를 변경합니다.
+                if (searchData[position].is_scraped) { // 이미 북마크 되어있는 경우 db에서 삭제하고 북마크 이미지를 변경합니다.
                     searchData[position].is_scraped = !searchData[position].is_scraped
                     utubeAdapter.notifyDataSetChanged()
                     dBhelper.deleteChannel(searchData[position].videoId)
-                }else{ // 북마크 되어있지 않은 경우 북마크 이미지를 변경하고 api를 호출해 데이터베이스에 넣어줍니다.
+                } else { // 북마크 되어있지 않은 경우 북마크 이미지를 변경하고 api를 호출해 데이터베이스에 넣어줍니다.
                     searchData[position].is_scraped = !searchData[position].is_scraped
                     utubeAdapter.notifyDataSetChanged()
                     ChannelSearchTask(data)
@@ -84,10 +93,27 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
+    fun showKeyboard(view: View) {
+        binding.searchEdit.clearFocus()
+        binding.searchEdit.requestFocus()
+        GlobalScope.launch {
+            delay(100)
+            imm?.showSoftInput(binding.searchEdit, InputMethodManager.SHOW_IMPLICIT)
+
+        }
+    }
+
+    fun hideKeyboard(v: View) {
+        if (v != null) {
+            imm?.hideSoftInputFromWindow(v.windowToken, 0)
+        }
+    }
+
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        Log.d("restore!!","restore!!")
+        Log.d("restore!!", "restore!!")
     }
+
     @SuppressLint("NotifyDataSetChanged")
     private fun SearchTask() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -106,11 +132,12 @@ class SearchFragment : Fragment() {
             }
         }
     }
-    private fun ChannelSearchTask(myData: SearchData){
+
+    private fun ChannelSearchTask(myData: SearchData) {
 
         CoroutineScope(Dispatchers.IO).launch {
 
-           // var myList: MutableList<Int>? = null
+            // var myList: MutableList<Int>? = null
             var myList: MutableList<Long>? = null
 
             val getData = async {
