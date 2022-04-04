@@ -4,6 +4,8 @@
 
 유튜버의 팬임을 인증할 수 있는 어플리케이션이다. 언제부터 셀럽의 팬이었는지를 초기 설정 날짜 등을 통해, 셀럽을 얼마나 좋아하는지를 좋아요 숫자 등으로 나타내어 인증할 수 있도록 하였다. 
 
+**출시링크** : https://play.google.com/store/apps/details?id=com.fancertification.www
+
 ![vertical](https://user-images.githubusercontent.com/70648111/161492490-b347f898-7e45-4537-898f-5692fe143ee5.png)
 
 
