@@ -4,6 +4,17 @@
 
 유튜버의 팬임을 인증할 수 있는 어플리케이션이다. 언제부터 셀럽의 팬이었는지를 초기 설정 날짜 등을 통해, 셀럽을 얼마나 좋아하는지를 좋아요 숫자 등으로 나타내어 인증할 수 있도록 하였다. 
 
+
+![1.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8781a4ef-8622-441e-b36e-85d6ba03d9d1/1.png)
+
+![2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d8e46c27-c399-471a-ab52-b5c871c26a82/2.png)
+
+![3.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77c90890-6a40-47db-99c5-bbb33a44d8cf/3.png)
+
+![4.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03e04814-18e8-4b25-b355-e3af17bcf18b/4.png)
+
+
+
 # 개발의도
 단순 유튜버를 구독하는 것을 넘어서 구독한 유튜버중에서도 내가 특히 좋아하고 원하는 유튜버들의 상세정보를 한눈에 모아볼 수 있고 또한 내가 우리 어플에서 얼마나 오랫동안 해당 유튜버를 구독했는지 경과를 알 수 있어서 이사람에 대한 나의 관심이 언제부터 이어져있는 가를 확인하여 Fan certification이라는 말처럼 개개인의 팬이 유튜버에 대한 팬임을 인증을 할 수 있도록 목적을 두었다.
 
