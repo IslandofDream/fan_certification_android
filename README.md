@@ -5,14 +5,10 @@
 유튜버의 팬임을 인증할 수 있는 어플리케이션이다. 언제부터 셀럽의 팬이었는지를 초기 설정 날짜 등을 통해, 셀럽을 얼마나 좋아하는지를 좋아요 숫자 등으로 나타내어 인증할 수 있도록 하였다. 
 
 
-![1.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8781a4ef-8622-441e-b36e-85d6ba03d9d1/1.png)
-
-![2.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d8e46c27-c399-471a-ab52-b5c871c26a82/2.png)
-
-![3.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/77c90890-6a40-47db-99c5-bbb33a44d8cf/3.png)
-
-![4.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03e04814-18e8-4b25-b355-e3af17bcf18b/4.png)
-
+![1](https://user-images.githubusercontent.com/70648111/161491448-479dc2c4-3905-4b2b-80be-a8d1eef6175f.png)
+![2](https://user-images.githubusercontent.com/70648111/161491468-e3a22f56-5e08-4562-92b3-ddf835fc64c4.png)
+![3](https://user-images.githubusercontent.com/70648111/161491473-40daef6b-d86a-4c72-89e7-a1160e78f4da.png)
+![4](https://user-images.githubusercontent.com/70648111/161491479-3a531e39-a96c-4317-bc18-72771eded5e1.png)
 
 
 # 개발의도
