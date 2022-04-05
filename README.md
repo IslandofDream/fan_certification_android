@@ -20,6 +20,25 @@
 
 - 채널 검색(사칭 채널 방지를 위해 youtube DataAPI를 통해 검색결과와 함께 각 채널의 총 구독자수 및 채널설명을 보여준다.)
 
+# 시연 영상
+
+## 유튜버 검색 및 저장 / 북마크화면에서 유튜버 정보 확인
+
+https://user-images.githubusercontent.com/70648111/161674160-884a053d-fc4d-4718-a3f5-11a4d3a3d847.mp4
+
+## 유튜버 검색 및 삭제
+
+https://user-images.githubusercontent.com/70648111/161674168-42d76413-2ba1-4b7f-9169-0610ee45f9ad.mp4
+
+# 확장성
+
+- 앞으로 더 확장을 하게 된다면, Firebase 를 이용한 회원가입기능,
+- Local DB가 아닌 회원별 FireStore를 통한 데이터관리
+- 추가한 유튜버에 대한 어플내 사용자들의 좋아요 count 및 랭킹산정
+- 유튜버에 대한 추가정보 제공(가장 조회수가 높은 동영상, 채널개설일등)
+- 해당 유튜버에 대한 나만의 정보 추가 (가장 좋아하는 동영상 추가, 해당 유튜버에게 하고싶은 말)
+
+
 # 초기 설정
 
 [노션 링크](https://www.notion.so/Fan-Certification-Android-a55ec9850b654d04b74b28d823ae9642)
